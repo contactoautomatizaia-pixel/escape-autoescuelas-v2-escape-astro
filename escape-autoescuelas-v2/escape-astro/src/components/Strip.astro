@@ -1,0 +1,21 @@
+---
+const items = ["98% TEÓRICO", "★", "63% PRÁCTICO · 43% MEDIA ELCHE", "★", "DESDE 2011", "★", "PROMO AMIGO 2+2", "★", "ELX · ALICANTE", "★"];
+const row = [...items, ...items, ...items];
+---
+
+<div
+  style="padding:20px 0;overflow:hidden;border-bottom:1px solid var(--escape-line);"
+  data-c="strip"
+  aria-hidden="true"
+>
+  <div
+    class="escape-marquee-track"
+    style="font-family:var(--font-display);font-size:56px;font-style:italic;letter-spacing:-0.02em;"
+  >
+    {row.map((tx, i) => (
+      <span
+        style={`margin-right:40px;color:${tx === "★" ? "var(--escape-red)" : "var(--escape-ink)"};`}
+      >{tx}</span>
+    ))}
+  </div>
+</div>

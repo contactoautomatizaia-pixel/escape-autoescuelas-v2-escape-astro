@@ -1,0 +1,158 @@
+---
+const stats = [
+  { prefix: "",  val: 98, suffix: "%",  label: "Aprobados Teórico" },
+  { prefix: "",  val: 63, suffix: "%*", label: "Aprobados Práctico" },
+  { prefix: "+", val: 15, suffix: "",   label: "Años en Elx" },
+  { prefix: "",  val: 24, suffix: "/7", label: "Plataforma online" },
+];
+---
+
+<section
+  style="padding:80px 56px;background:var(--escape-ink);color:#fff;"
+  data-c="stats"
+  id="stats-section"
+  aria-label="Nuestros resultados"
+>
+  <div class="stats-row" id="stats-row">
+    {stats.map((s, i) => (
+      <div
+        class="stat-item"
+        style={`transition-delay:${i * 120}ms;`}
+        data-val={s.val}
+      >
+        <div class="stat-num">
+          <span class="stat-prefix">{s.prefix}</span>
+          <span class="stat-counter">0</span>
+          <span class="stat-suffix">{s.suffix}</span>
+        </div>
+        <div class="stat-label">{s.label}</div>
+      </div>
+    ))}
+  </div>
+  <div class="stats-note">
+    * Datos reales de Escape Autoescuelas frente al 43% de media en Elche (2025).
+  </div>
+</section>
+
+<style>
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+  .stat-item {
+    border-left: 1px solid rgba(255,255,255,0.15);
+    padding-left: 24px;
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 96px;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    color: var(--escape-red);
+    display: flex;
+    align-items: baseline;
+  }
+  .stat-suffix {
+    font-size: 0.65em;
+  }
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.7);
+    margin-top: 12px;
+  }
+  .stats-note {
+    margin-top: 32px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+  }
+  @media (max-width: 900px) {
+    .stats-row {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    #stats-section {
+      padding: 64px 32px !important;
+    }
+    .stat-num {
+      font-size: 72px;
+    }
+  }
+  @media (max-width: 480px) {
+    .stats-row {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px 16px;
+    }
+    #stats-section {
+      padding: 56px 20px !important;
+    }
+    .stat-num {
+      font-size: 58px;
+    }
+    .stat-item {
+      padding-left: 14px;
+    }
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    var started = false;
+
+    function easeOut(t) {
+      return 1 - Math.pow(1 - t, 3);
+    }
+
+    function animateStat(item, delay) {
+      var target = parseInt(item.getAttribute('data-val'), 10);
+      var counter = item.querySelector('.stat-counter');
+      var duration = 1600;
+      setTimeout(function () {
+        var start = null;
+        function step(ts) {
+          if (!start) start = ts;
+          var progress = Math.min((ts - start) / duration, 1);
+          counter.textContent = Math.round(easeOut(progress) * target);
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else {
+            counter.textContent = target;
+          }
+        }
+        requestAnimationFrame(step);
+      }, delay);
+    }
+
+    function startAll() {
+      if (started) return;
+      started = true;
+      var items = document.querySelectorAll('.stat-item');
+      items.forEach(function (item, idx) {
+        item.style.opacity = '1';
+        item.style.transform = 'translateY(0)';
+        animateStat(item, idx * 150);
+      });
+    }
+
+    var section = document.getElementById('stats-section');
+    if (!section) return;
+
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) {
+          startAll();
+          obs.disconnect();
+        }
+      }, { threshold: 0.25 });
+      obs.observe(section);
+    } else {
+      startAll();
+    }
+  })();
+</script>

@@ -1,0 +1,303 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+
+const WHATSAPP_URL = "https://wa.me/34601302309?text=Hola%2C%20quiero%20info%20de%20Escape%20Autoescuelas";
+const PHONE_DISPLAY = "601 30 23 09";
+const PHONE_TEL = "tel:+34601302309";
+
+const detalles = [
+  {
+    id: "B", tag: "COCHE", title: "Permiso B",
+    sub: "El más solicitado · desde 18 años · automóviles hasta 3.500 kg",
+    matricula: 230, practica: "33 EUR - 45 min",
+    tasa: "Tasa DGT incluida (2 oportunidades)",
+    incluye: ["Acceso a la plataforma online 24/7","Clases teóricas dentro de la plataforma","Tests ilimitados","Tests presenciales en la autoescuela","Seguimiento personal de tu profesor"],
+    promo: "Promo amigo: 2 prácticas gratis para ti + 2 para quien venga contigo",
+    featured: true,
+  },
+  {
+    id: "A2", tag: "MOTO", title: "Permiso A2",
+    sub: "Hasta 35 kW · desde 18 años",
+    matricula: 180, practica: "Cerrado 30 EUR - 30 min  /  Abierto 45 EUR - 45 min",
+    tasa: "Tasa DGT 100 EUR - 2 oportunidades",
+    incluye: ["Plataforma online + libro","Posibilidad de hacer tests presenciales","Seguimiento personal","Equipamiento incluido en circuito abierto"],
+    promo: "Promo amigo 2+2 incluida",
+    featured: false,
+  },
+  {
+    id: "A1", tag: "MOTO", title: "Permiso A1",
+    sub: "Motos 125 cc · desde 16 años",
+    matricula: 180, practica: "Cerrado 28 EUR - 30 min  /  Abierto 42 EUR - 45 min",
+    tasa: "Tasa DGT 100 EUR - 2 oportunidades",
+    incluye: ["Mismo material que el A2","Plataforma online + libro","Equipamiento incluido","Seguimiento personal"],
+    promo: "Promo amigo 2+2 incluida",
+    featured: false,
+  },
+  {
+    id: "AM", tag: "CICLOMOTOR", title: "Permiso AM",
+    sub: "Desde 15 años · ciclomotor",
+    matricula: 220, practica: "Cerrado 28 EUR - 30 min",
+    tasa: "Tasa DGT 100 EUR - 2 oportunidades",
+    incluye: ["Acceso a plataforma online","Equipamiento de la casa incluido","Para empezar antes que nadie"],
+    promo: "Equipamiento de la casa siempre",
+    featured: false,
+  },
+];
+
+const schemaPermisos = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Permisos de conducir Escape Autoescuelas Elche",
+  "itemListElement": detalles.map((p, i) => ({
+    "@type": "ListItem", "position": i + 1,
+    "item": {
+      "@type": "Service", "name": p.title,
+      "provider": { "@type": "DrivingSchool", "name": "Escape Autoescuelas" },
+      "offers": { "@type": "Offer", "price": p.matricula, "priceCurrency": "EUR" },
+    },
+  })),
+});
+---
+
+<Layout
+  title="Permisos y Precios · Sin letra pequeña · Escape Autoescuelas Elche"
+  description="Precios claros de carnet de coche (B), moto A2, A1 y ciclomotor AM en Elche. Prácticas sueltas, 2 intentos DGT incluidos. Sin bonos cerrados ni sorpresas."
+  canonical="https://escapeautoescuelas.com/permisos"
+  schemas={[schemaPermisos]}
+>
+  <div class="escape-root" style="background:var(--escape-paper);color:var(--escape-ink);width:100%;overflow:hidden;">
+    <Nav activePage="permisos" />
+
+    <!-- Hero -->
+    <section
+      class="escape-reveal"
+      data-c="permisosHero"
+      style="padding:80px 56px 56px;background:var(--escape-red);color:#fff;position:relative;overflow:hidden;"
+    >
+      <div aria-hidden="true" style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.05) 1px,transparent 1px);background-size:48px 48px;"></div>
+      <div class="escape-blob-anim" aria-hidden="true" style="position:absolute;width:500px;height:500px;border-radius:50%;background:rgba(0,0,0,0.18);top:-180px;right:-80px;filter:blur(20px);"></div>
+      <div style="position:relative;max-width:1100px;">
+        <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.15em;margin-bottom:16px;">&#9679; PERMISOS Y PRECIOS</div>
+        <h1
+          data-c="permisosHeroTitle"
+          style="font-family:var(--font-display);font-size:clamp(56px,9vw,132px);line-height:0.92;letter-spacing:-0.045em;"
+        >
+          Todos los <span class="escape-italic">precios</span>,<br/>sin letra pequeña.
+        </h1>
+        <p style="font-size:20px;line-height:1.5;margin-top:24px;max-width:720px;opacity:0.92;">
+          Matrícula clara, tasas explicadas y prácticas sueltas. Sin bonos cerrados ni sorpresas en la factura.
+        </p>
+      </div>
+    </section>
+
+    <!-- Acordeon de permisos -->
+    <section style="padding:80px 56px;" data-c="section">
+      <div class="escape-reveal-stagger perm-accordion" id="perm-accordion">
+        {detalles.map((p, i) => (
+          <div
+            class={"perm-item" + (p.featured ? " perm-featured" : "")}
+            data-index={i}
+          >
+            <button
+              class="perm-header"
+              aria-expanded={i === 0 ? "true" : "false"}
+              aria-controls={"perm-body-" + i}
+            >
+              <div class="perm-header-left">
+                <span class="perm-tag">{p.tag}</span>
+                <span class="perm-title">{p.title}</span>
+                <span class="perm-sub">{p.sub}</span>
+              </div>
+              <div class="perm-header-right">
+                <div class="perm-price-wrap">
+                  <span class="perm-price-label">MATRÍCULA</span>
+                  <span class="perm-price">{p.matricula}&#8364;</span>
+                </div>
+                <div class="perm-chevron" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </div>
+              </div>
+            </button>
+
+            <div
+              class="perm-body"
+              id={"perm-body-" + i}
+              style={i === 0 ? "" : "display:none;"}
+            >
+              <div class="perm-body-inner">
+                <div class="perm-section">
+                  <div class="perm-section-label">QUÉ INCLUYE LA MATRÍCULA</div>
+                  <ul class="perm-incluye">
+                    {p.incluye.map((item) => (
+                      <li>
+                        <span class="perm-arrow" aria-hidden="true">&#8594;</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div class="perm-details-row">
+                  <div class="perm-detail-block">
+                    <div class="perm-section-label">PRÁCTICAS</div>
+                    <div class="perm-detail-val">{p.practica}</div>
+                  </div>
+                  <div class="perm-detail-block">
+                    <div class="perm-section-label">TASAS DGT</div>
+                    <div class="perm-detail-val">{p.tasa}</div>
+                  </div>
+                  <div class="perm-detail-block perm-promo-block">
+                    <span class="perm-promo-badge">2+2</span>
+                    <span class="perm-promo-text">{p.promo}</span>
+                  </div>
+                </div>
+
+                <a
+                  href="/contacto"
+                  class="escape-btn perm-cta"
+                  aria-label={"Matricularme en el " + p.title}
+                >
+                  Matricularme en {p.id} <span class="escape-perm-arrow">&#8594;</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <style>
+        .perm-accordion { display: flex; flex-direction: column; gap: 12px; }
+        .perm-item {
+          border-radius: 20px; overflow: hidden;
+          border: 1.5px solid var(--escape-line);
+          background: #fff;
+          transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .perm-item.perm-featured { background: var(--escape-ink); color: #fff; border-color: transparent; }
+        .perm-item.is-open { border-color: var(--escape-red); box-shadow: 0 8px 40px -8px rgba(200,16,46,0.18); }
+        .perm-item.perm-featured.is-open { box-shadow: 0 8px 40px -8px rgba(200,16,46,0.35); }
+        .perm-header {
+          width: 100%; display: flex; align-items: center; justify-content: space-between;
+          gap: 24px; padding: 28px 36px; background: transparent; border: 0; cursor: pointer;
+          color: inherit; text-align: left; transition: background 0.2s;
+        }
+        .perm-header:hover { background: rgba(200,16,46,0.04); }
+        .perm-featured .perm-header:hover { background: rgba(255,255,255,0.05); }
+        .perm-header-left { display: flex; align-items: center; gap: 20px; flex: 1; min-width: 0; }
+        .perm-tag {
+          font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em;
+          color: var(--escape-red); background: rgba(200,16,46,0.1);
+          padding: 4px 10px; border-radius: 6px; white-space: nowrap; flex-shrink: 0;
+        }
+        .perm-featured .perm-tag { background: rgba(200,16,46,0.25); }
+        .perm-title { font-family: var(--font-display); font-size: 36px; letter-spacing: -0.03em; line-height: 1; flex-shrink: 0; }
+        .perm-sub { font-family: var(--font-serif); font-style: italic; font-size: 15px; opacity: 0.6; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .perm-header-right { display: flex; align-items: center; gap: 24px; flex-shrink: 0; }
+        .perm-price-wrap { text-align: right; }
+        .perm-price-label { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.15em; opacity: 0.5; display: block; }
+        .perm-price { font-family: var(--font-display); font-size: 48px; letter-spacing: -0.04em; line-height: 1; color: var(--escape-red); }
+        .perm-featured .perm-price { color: #fff; }
+        .perm-chevron {
+          width: 36px; height: 36px; border-radius: 50%;
+          border: 1.5px solid var(--escape-line); display: flex; align-items: center;
+          justify-content: center; flex-shrink: 0;
+          transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), background 0.3s, border-color 0.3s;
+        }
+        .perm-featured .perm-chevron { border-color: rgba(255,255,255,0.2); }
+        .perm-item.is-open .perm-chevron { transform: rotate(180deg); background: var(--escape-red); border-color: var(--escape-red); color: #fff; }
+        .perm-body { overflow: hidden; }
+        .perm-body.is-opening { animation: accordionOpen 0.45s cubic-bezier(0.22,1,0.36,1) forwards; }
+        .perm-body.is-closing { animation: accordionClose 0.35s cubic-bezier(0.55,0,1,0.45) forwards; }
+        @keyframes accordionOpen { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes accordionClose { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(-8px); } }
+        .perm-body-inner { padding: 0 36px 32px; display: flex; flex-direction: column; gap: 24px; border-top: 1px solid var(--escape-line); }
+        .perm-featured .perm-body-inner { border-top-color: rgba(255,255,255,0.12); }
+        .perm-section-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; opacity: 0.5; margin-bottom: 12px; }
+        .perm-incluye { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 32px; list-style: none; padding: 0; margin: 0; }
+        .perm-incluye li { display: flex; gap: 10px; font-size: 15px; line-height: 1.4; }
+        .perm-arrow { color: var(--escape-red); font-weight: 700; flex-shrink: 0; }
+        .perm-details-row { display: flex; gap: 32px; flex-wrap: wrap; padding-top: 20px; border-top: 1px dashed var(--escape-line); }
+        .perm-featured .perm-details-row { border-top-color: rgba(255,255,255,0.12); }
+        .perm-detail-block { flex: 1; min-width: 160px; }
+        .perm-detail-val { font-size: 15px; margin-top: 6px; line-height: 1.5; }
+        .perm-promo-block { display: flex; align-items: center; gap: 10px; background: rgba(200,16,46,0.08); border-radius: 10px; padding: 10px 16px; }
+        .perm-featured .perm-promo-block { background: rgba(255,255,255,0.06); }
+        .perm-promo-badge { background: var(--escape-red); color: #fff; padding: 4px 10px; border-radius: 6px; font-family: var(--font-display); font-size: 13px; flex-shrink: 0; }
+        .perm-promo-text { font-size: 14px; }
+        .perm-cta { align-self: flex-start; background: var(--escape-red); color: #fff; border: 0; padding: 14px 28px; border-radius: 999px; font-weight: 700; font-size: 15px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+        @media (max-width: 768px) {
+          .perm-header { padding: 20px; gap: 12px; flex-wrap: wrap; }
+          .perm-header-left { gap: 10px; flex-wrap: wrap; }
+          .perm-sub { display: none; }
+          .perm-title { font-size: 28px; }
+          .perm-price { font-size: 36px; }
+          .perm-body-inner { padding: 0 20px 24px; }
+          .perm-incluye { grid-template-columns: 1fr; }
+          .perm-details-row { flex-direction: column; gap: 16px; }
+          [data-c="section"] { padding: 48px 20px !important; }
+        }
+      </style>
+
+      <script is:inline>
+        (function() {
+          var items = document.querySelectorAll('.perm-item');
+          if (items[0]) items[0].classList.add('is-open');
+          items.forEach(function(item) {
+            var btn  = item.querySelector('.perm-header');
+            var body = item.querySelector('.perm-body');
+            if (!btn || !body) return;
+            btn.addEventListener('click', function() {
+              var isOpen = item.classList.contains('is-open');
+              if (isOpen) {
+                item.classList.remove('is-open');
+                btn.setAttribute('aria-expanded', 'false');
+                body.classList.remove('is-opening');
+                body.classList.add('is-closing');
+                body.addEventListener('animationend', function handler() {
+                  body.style.display = 'none';
+                  body.classList.remove('is-closing');
+                  body.removeEventListener('animationend', handler);
+                });
+              } else {
+                item.classList.add('is-open');
+                btn.setAttribute('aria-expanded', 'true');
+                body.style.display = 'block';
+                body.classList.remove('is-closing');
+                body.classList.add('is-opening');
+                body.addEventListener('animationend', function handler() {
+                  body.classList.remove('is-opening');
+                  body.removeEventListener('animationend', handler);
+                });
+              }
+            });
+          });
+        })();
+      </script>
+
+      <!-- CTA final -->
+      <div
+        class="escape-reveal"
+        data-c="permisosBottomCta"
+        style="margin-top:56px;padding:32px 40px;border-radius:24px;background:var(--escape-paper-2);border:1px solid var(--escape-line);display:grid;grid-template-columns:1fr auto;align-items:center;gap:32px;"
+      >
+        <div>
+          <div style="font-family:var(--font-display);font-size:32px;letter-spacing:-0.02em;">¿Dudas con tu permiso?</div>
+          <p style="font-size:16px;color:var(--escape-ink-2);margin-top:8px;">Te lo aclaramos por WhatsApp en 2 minutos. Sin compromiso, sin venderte nada raro.</p>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;">
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener" class="escape-btn" style="background:#25D366;color:#fff;padding:16px 24px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.15-.174.2-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            WhatsApp · {PHONE_DISPLAY}
+          </a>
+          <a href={PHONE_TEL} class="escape-btn" style="background:transparent;color:var(--escape-ink);border:1.5px solid var(--escape-ink);padding:16px 24px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;">Llamar</a>
+        </div>
+      </div>
+    </section>
+
+    <Footer />
+  </div>
+</Layout>

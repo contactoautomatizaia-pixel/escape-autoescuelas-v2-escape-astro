@@ -1,0 +1,41 @@
+---
+const pasos = [
+  { n: "01", t: "Te matriculas online",    d: "En 2 minutos. Recibes acceso inmediato a la plataforma." },
+  { n: "02", t: "Estudias el teórico",     d: "Vídeos + tests ilimitados + tu profe siguiendo tu progreso." },
+  { n: "03", t: "Apruebas el teórico",     d: "Te inscribimos en cuanto estés listo. 2 oportunidades incluidas." },
+  { n: "04", t: "Empiezas las prácticas",  d: "Sueltas, sin bonos cerrados. 33€ coche, 28-45€ moto." },
+  { n: "05", t: "Carnet en la mano",       d: "Y si traes a un amigo, 2 prácticas gratis para los dos." },
+];
+---
+
+<section style="padding:80px 56px;" data-c="section">
+  <div class="escape-reveal" style="margin-bottom:48px;">
+    <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.15em;color:var(--escape-red);margin-bottom:16px;">● CÓMO FUNCIONA</div>
+    <h2
+      style="font-family:var(--font-display);font-size:96px;line-height:0.95;letter-spacing:-0.045em;"
+      data-c="section-title"
+    >
+      Cinco pasos. <span class="escape-italic" style="color:var(--escape-red);">Cero rollos.</span>
+    </h2>
+  </div>
+
+  <div
+    class="escape-reveal-stagger"
+    style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;"
+    data-c="procGrid"
+  >
+    {pasos.map((p, i) => (
+      <div
+        class="escape-card"
+        style={`padding:24px;min-height:220px;display:flex;flex-direction:column;gap:8px;border-radius:6px;
+          background:${i === 0 ? "var(--escape-red)" : "#fff"};
+          color:${i === 0 ? "#fff" : "var(--escape-ink)"};
+          border:${i === 0 ? "none" : "1px solid var(--escape-line)"};`}
+      >
+        <div class="escape-italic" style={`font-size:56px;line-height:1;color:${i === 0 ? "#fff" : "var(--escape-red)"};opacity:${i === 0 ? 0.9 : 0.2};`}>{p.n}</div>
+        <h3 style="font-family:var(--font-display);font-size:22px;letter-spacing:-0.02em;margin-top:auto;">{p.t}</h3>
+        <p style="font-size:13px;line-height:1.5;opacity:0.85;">{p.d}</p>
+      </div>
+    ))}
+  </div>
+</section>

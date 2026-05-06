@@ -1,0 +1,325 @@
+---
+interface Props {
+  activePage?: 'home' | 'permisos' | 'teoria' | 'equipo' | 'contacto';
+}
+const { activePage = 'home' } = Astro.props;
+
+const links = [
+  { n: "01", label: "Inicio",           href: "/",               key: "home" },
+  { n: "02", label: "Permisos",         href: "/permisos",       key: "permisos" },
+  { n: "03", label: "Teoría y método",  href: "/teoria-metodo",  key: "teoria" },
+  { n: "04", label: "Equipo",           href: "/equipo",         key: "equipo" },
+  { n: "05", label: "Contacto",         href: "/contacto",       key: "contacto" },
+];
+---
+
+<!-- Progress bar -->
+<div id="nav-progress" aria-hidden="true"></div>
+
+<header id="site-nav" data-c="nav">
+  <!-- Logo -->
+  <a href="/" class="nav-brand" aria-label="Escape Autoescuelas - Inicio">
+    <img src="/assets/logo-light.png" alt="Escape Autoescuelas" class="nav-logo" />
+  </a>
+
+  <!-- Separador vertical -->
+  <div class="nav-sep" aria-hidden="true"></div>
+
+  <!-- Links desktop -->
+  <nav class="nav-links" aria-label="Navegacion principal">
+    {links.map((l) => (
+      <a
+        href={l.href}
+        class={"nav-link" + (activePage === l.key ? " is-active" : "")}
+        aria-current={activePage === l.key ? "page" : undefined}
+      >
+        <span class="nav-link-num">{l.n}</span>
+        <span class="nav-link-text">
+          <span class="nav-link-inner">{l.label}</span>
+          <span class="nav-link-clone" aria-hidden="true">{l.label}</span>
+        </span>
+      </a>
+    ))}
+  </nav>
+
+  <!-- CTA + hamburguesa -->
+  <div class="nav-actions">
+    <a href="/contacto" class="nav-cta" id="nav-cta-btn">
+      Matrícula <span class="nav-cta-arrow">&#8594;</span>
+    </a>
+    <button id="nav-burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-mobile" class="nav-burger">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile overlay -->
+<div id="nav-mobile" aria-hidden="true" class="nav-mobile">
+  <div class="nav-mobile-inner">
+    <div class="nav-mobile-top">
+      <img src="/assets/logo-light.png" alt="Escape Autoescuelas" class="nav-logo" style="height:32px;" />
+      <button class="nav-mobile-close" id="nav-close" aria-label="Cerrar menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="nav-mobile-links">
+      {links.map((l, i) => (
+        <a href={l.href} class="nav-mob-link" style={"--i:" + i} onclick="closeMobileNav()">
+          <span class="nav-mob-num">{l.n}</span>
+          <span class="nav-mob-text">{l.label}</span>
+          <svg class="nav-mob-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      ))}
+    </nav>
+    <a href="/contacto" onclick="closeMobileNav()" class="nav-mob-cta">Matricularme ahora &#8594;</a>
+  </div>
+</div>
+
+<style>
+/* ── PROGRESS BAR ── */
+#nav-progress {
+  position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+  background: var(--escape-red); z-index: 200;
+  transition: width 0.1s linear;
+  border-radius: 0 2px 2px 0;
+}
+
+/* ── HEADER ── */
+#site-nav {
+  display: flex; align-items: center; gap: 0;
+  padding: 0 48px; height: 76px;
+  background: rgba(10,10,10,0.82);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  transition: height 0.4s cubic-bezier(0.22,1,0.36,1),
+              background 0.4s ease,
+              border-color 0.4s ease;
+}
+#site-nav.is-scrolled {
+  height: 60px;
+  background: rgba(10,10,10,0.95);
+  border-bottom-color: rgba(255,255,255,0.12);
+}
+
+.nav-brand { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+.nav-logo { height: 36px; transition: height 0.4s cubic-bezier(0.22,1,0.36,1); }
+#site-nav.is-scrolled .nav-logo { height: 30px; }
+
+.nav-sep {
+  width: 1px; height: 28px; background: rgba(255,255,255,0.12);
+  margin: 0 32px; flex-shrink: 0;
+  transition: opacity 0.3s;
+}
+
+/* ── LINKS ── */
+.nav-links { display: flex; align-items: center; gap: 4px; flex: 1; }
+
+.nav-link {
+  display: flex; align-items: center; gap: 6px;
+  text-decoration: none; color: rgba(255,255,255,0.7);
+  padding: 8px 12px; border-radius: 8px; position: relative;
+  transition: color 0.25s, background 0.25s;
+  overflow: hidden;
+}
+.nav-link:hover { color: #fff; background: rgba(255,255,255,0.06); }
+.nav-link.is-active { color: #fff; }
+.nav-link.is-active::after {
+  content: ''; position: absolute; bottom: 4px; left: 12px; right: 12px;
+  height: 1.5px; background: var(--escape-red); border-radius: 1px;
+}
+
+.nav-link-num {
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.3); transition: color 0.25s;
+  line-height: 1;
+}
+.nav-link:hover .nav-link-num,
+.nav-link.is-active .nav-link-num { color: var(--escape-red); }
+
+.nav-link-text {
+  position: relative; overflow: hidden; display: block;
+  font-size: 13px; font-weight: 500; line-height: 1;
+  height: 1em;
+}
+.nav-link-inner,
+.nav-link-clone {
+  display: block;
+  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1);
+}
+.nav-link-clone {
+  position: absolute; left: 0; top: 100%;
+  color: #fff;
+}
+.nav-link:hover .nav-link-inner { transform: translateY(-100%); }
+.nav-link:hover .nav-link-clone { transform: translateY(-100%); }
+
+/* ── ACTIONS ── */
+.nav-actions { display: flex; align-items: center; gap: 12px; margin-left: auto; flex-shrink: 0; }
+
+.nav-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--escape-red); color: #fff;
+  padding: 10px 20px; border-radius: 999px;
+  font-weight: 700; font-size: 13px; text-decoration: none;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 0 0 rgba(200,16,46,0.4);
+}
+.nav-cta:hover {
+  background: #a80d28; transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(200,16,46,0.4);
+}
+.nav-cta-arrow { transition: transform 0.25s cubic-bezier(0.22,1,0.36,1); }
+.nav-cta:hover .nav-cta-arrow { transform: translateX(3px); }
+
+/* ── HAMBURGER ── */
+.nav-burger {
+  display: none; flex-direction: column; justify-content: center; align-items: center;
+  gap: 6px; width: 40px; height: 40px;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px; cursor: pointer; padding: 0;
+  transition: background 0.2s;
+}
+.nav-burger:hover { background: rgba(255,255,255,0.1); }
+.burger-line {
+  display: block; width: 18px; height: 1.5px; background: #fff; border-radius: 2px;
+  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), opacity 0.25s, width 0.3s;
+}
+.nav-burger.is-open .burger-line:nth-child(1) { transform: translateY(3.75px) rotate(45deg); }
+.nav-burger.is-open .burger-line:nth-child(2) { transform: translateY(-3.75px) rotate(-45deg); }
+
+/* ── MOBILE OVERLAY ── */
+.nav-mobile {
+  position: fixed; inset: 0; z-index: 99;
+  background: var(--escape-ink);
+  display: flex; flex-direction: column;
+  pointer-events: none; opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+.nav-mobile.is-open { opacity: 1; pointer-events: all; }
+
+.nav-mobile-inner {
+  display: flex; flex-direction: column; height: 100%;
+  padding: 0 28px 40px;
+}
+.nav-mobile-top {
+  display: flex; justify-content: space-between; align-items: center;
+  height: 76px; border-bottom: 1px solid rgba(255,255,255,0.08); flex-shrink: 0;
+}
+.nav-mobile-close {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+  color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.nav-mobile-close:hover { background: rgba(255,255,255,0.12); }
+
+.nav-mobile-links { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 4px; }
+
+.nav-mob-link {
+  display: flex; align-items: center; gap: 16px;
+  text-decoration: none; color: rgba(255,255,255,0.6);
+  padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: color 0.2s, padding-left 0.3s;
+  transform: translateX(-20px); opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), opacity 0.5s ease, color 0.2s, padding-left 0.2s;
+  transition-delay: calc(var(--i) * 60ms);
+}
+.nav-mobile.is-open .nav-mob-link { transform: translateX(0); opacity: 1; }
+.nav-mob-link:hover { color: #fff; padding-left: 8px; }
+
+.nav-mob-num {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.2); width: 24px; flex-shrink: 0;
+}
+.nav-mob-text {
+  font-family: var(--font-display); font-size: clamp(32px,8vw,48px);
+  letter-spacing: -0.03em; line-height: 1; flex: 1;
+}
+.nav-mob-arrow { color: rgba(255,255,255,0.2); flex-shrink: 0; transition: color 0.2s, transform 0.2s; }
+.nav-mob-link:hover .nav-mob-arrow { color: var(--escape-red); transform: translateX(4px); }
+
+.nav-mob-cta {
+  display: block; text-align: center;
+  background: var(--escape-red); color: #fff;
+  padding: 18px; border-radius: 16px;
+  font-weight: 700; font-size: 16px; text-decoration: none;
+  margin-top: 24px;
+  transform: translateY(20px); opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1) 0.32s, opacity 0.5s ease 0.32s, background 0.2s;
+}
+.nav-mobile.is-open .nav-mob-cta { transform: translateY(0); opacity: 1; }
+.nav-mob-cta:hover { background: #a80d28; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .nav-links { display: none !important; }
+  .nav-sep { display: none !important; }
+  #nav-cta-btn { display: none !important; }
+  .nav-burger { display: flex !important; }
+  #site-nav { padding: 0 24px; }
+}
+@media (max-width: 480px) {
+  #site-nav { padding: 0 16px; }
+  .nav-mob-text { font-size: 28px; }
+}
+</style>
+
+<script is:inline>
+  const burger   = document.getElementById('nav-burger');
+  const closeBtn = document.getElementById('nav-close');
+  const mobile   = document.getElementById('nav-mobile');
+  const nav      = document.getElementById('site-nav');
+  const progress = document.getElementById('nav-progress');
+
+  /* ── Scroll: shrink + progress bar ── */
+  function onScroll() {
+    const scrolled = window.scrollY > 40;
+    nav?.classList.toggle('is-scrolled', scrolled);
+    if (progress) {
+      const h = document.documentElement;
+      const pct = (window.scrollY / (h.scrollHeight - h.clientHeight)) * 100;
+      progress.style.width = pct + '%';
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ── Mobile open/close ── */
+  function openMobileNav() {
+    burger?.classList.add('is-open');
+    burger?.setAttribute('aria-expanded', 'true');
+    mobile?.classList.add('is-open');
+    mobile?.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileNav() {
+    burger?.classList.remove('is-open');
+    burger?.setAttribute('aria-expanded', 'false');
+    mobile?.classList.remove('is-open');
+    mobile?.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  burger?.addEventListener('click', () => {
+    burger.classList.contains('is-open') ? closeMobileNav() : openMobileNav();
+  });
+  closeBtn?.addEventListener('click', closeMobileNav);
+
+  document.addEventListener('click', (e) => {
+    if (mobile?.classList.contains('is-open') &&
+        !mobile.contains(e.target) &&
+        !burger?.contains(e.target)) {
+      closeMobileNav();
+    }
+  });
+
+  window.closeMobileNav = closeMobileNav;
+</script>

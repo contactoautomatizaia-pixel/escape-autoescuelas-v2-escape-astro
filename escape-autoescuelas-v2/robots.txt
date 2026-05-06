@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /screenshots/
+Disallow: /Mobile.html
+Disallow: /Home.html
+
+Sitemap: https://escapeautoescuelas.com/sitemap.xml

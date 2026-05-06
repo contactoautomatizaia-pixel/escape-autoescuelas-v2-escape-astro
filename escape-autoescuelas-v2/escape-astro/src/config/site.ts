@@ -1,0 +1,18 @@
+export const siteConfig = {
+  name: "Escape Autoescuelas",
+  phone: "601 30 23 09",
+  phoneTel: "tel:+34601302309",
+  whatsapp: "34601302309",
+  whatsappText: "Hola%2C%20quiero%20info%20de%20Escape%20Autoescuelas",
+  whatsappUrl: "https://wa.me/34601302309?text=Hola%2C%20quiero%20info%20de%20Escape%20Autoescuelas",
+  email: "info@escapeautoescuelas.com",
+  address: "Carrer Jaime Gómez Orts, 18",
+  zipCity: "03202 Elx · Alicante",
+  mapsSearchUrl: "https://www.google.com/maps/search/?api=1&query=Carrer+Jaime+G%C3%B3mez+Orts+18+03202+Elx+Alicante",
+  mapsEmbedUrl: "https://www.google.com/maps?q=Carrer+Jaime+G%C3%B3mez+Orts+18+03202+Elx+Alicante&output=embed",
+  instagram: "https://instagram.com/escapeautoescuelas",
+  location: "Elx",
+  region: "ES-VC",
+  coordinates: { lat: 38.265, lon: -0.701 },
+  year: new Date().getFullYear(),
+};

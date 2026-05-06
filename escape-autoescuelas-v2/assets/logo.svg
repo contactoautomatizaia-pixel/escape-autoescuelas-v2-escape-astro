@@ -1,0 +1,98 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 2200 430"
+  role="img"
+  aria-label="Escape Autoescuelas"
+>
+  <!--
+    Logo Escape Autoescuelas — SVG bg transparente.
+    Fiel al original: silueta de coche + ESCAPE (rojo) + AUTOESCUELAS (oscuro) + .com (rojo).
+    Uso en fondo oscuro/rojo: filter: brightness(0) invert(1) → todo blanco.
+  -->
+
+  <!-- ══ SILUETA DE COCHE ══
+       Trazado fiel al original: capó bajo izq → arco de techo → trasera con spoiler enroscado
+  -->
+  <g fill="none" stroke="#1a1a1a" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- Línea de carrocería principal -->
+    <path
+      d="
+        M  30 235
+        C  80 232, 140 200, 200 170
+        C  290  95, 400  40, 530  24
+        C  660  10, 790  10, 920  18
+        C 1060  26, 1180  65, 1300 102
+        C 1410 133, 1510 162, 1620 178
+        C 1720 192, 1820 182, 1890 155
+        C 1940 136, 1975 108, 1990  78
+        C 2000  58, 1995  35, 1980  18
+      "
+      stroke-width="16"
+    />
+
+    <!-- Curva spoiler trasero (la cola que se enrolla hacia arriba) -->
+    <path
+      d="
+        M 1890 155
+        C 1930 132, 1975 100, 1992  66
+        C 2002  44, 1997  20, 1982  8
+      "
+      stroke-width="15"
+    />
+
+    <!-- Línea de chasis horizontal bajo la silueta -->
+    <line x1="390" y1="240" x2="1600" y2="240" stroke-width="10"/>
+
+    <!-- Unión izquierda (capó con el suelo) -->
+    <path
+      d="M 30 235 C 160 235, 270 240, 390 240"
+      stroke-width="13"
+    />
+
+  </g>
+
+  <!-- ══ TEXTO ══ -->
+
+  <!-- "ESCAPE" — rojo, bold, italic -->
+  <text
+    x="20"
+    y="400"
+    font-family="'Arial Black', 'Franklin Gothic Heavy', Impact, Arial, sans-serif"
+    font-size="182"
+    font-weight="900"
+    font-style="italic"
+    fill="#C8102E"
+    textLength="640"
+    lengthAdjust="spacingAndGlyphs"
+    letter-spacing="-2"
+  >ESCAPE</text>
+
+  <!-- "AUTOESCUELAS" — gris oscuro, bold, italic -->
+  <text
+    x="710"
+    y="400"
+    font-family="'Arial Black', 'Franklin Gothic Heavy', Impact, Arial, sans-serif"
+    font-size="182"
+    font-weight="900"
+    font-style="italic"
+    fill="#1a1a1a"
+    textLength="1230"
+    lengthAdjust="spacingAndGlyphs"
+    letter-spacing="-2"
+  >AUTOESCUELAS</text>
+
+  <!-- ".com" — rojo, más pequeño, misma baseline -->
+  <text
+    x="1960"
+    y="400"
+    font-family="'Arial Black', 'Franklin Gothic Heavy', Impact, Arial, sans-serif"
+    font-size="128"
+    font-weight="900"
+    font-style="italic"
+    fill="#C8102E"
+    textLength="220"
+    lengthAdjust="spacingAndGlyphs"
+  >.com</text>
+
+</svg>

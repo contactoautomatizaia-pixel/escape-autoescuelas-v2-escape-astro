@@ -1,0 +1,32 @@
+# Configuración de Netlify para Escape Autoescuelas
+# Sitio estático: Netlify sirve directamente los archivos sin build step.
+
+[build]
+  publish = "."
+  command = "echo 'Sitio estático - sin build necesario'"
+
+# Headers básicos de seguridad y caché
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options    = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy    = "strict-origin-when-cross-origin"
+
+# Cachear los assets estáticos (imágenes, fuentes) por 1 año
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# Redirige urls sin slash trailing a las versiones canónicas
+[[redirects]]
+  from = "/Home.html"
+  to   = "/"
+  status = 301
+  force = true

@@ -1,0 +1,97 @@
+---
+const RADIUS = 14;
+const permisos = [
+  {
+    id: "B", tag: "COCHE", title: "Permiso B", price: 230,
+    color: "var(--escape-ink)", text: "#fff", featured: true,
+    lines: ["Plataforma online incluida", "Clases teóricas + tests", "Seguimiento personal", "Práctica suelta 33€ · 45 min"],
+    note: "Tasa DGT (2 oportunidades) · Promo amigo 2+2",
+  },
+  {
+    id: "A2", tag: "MOTO", title: "Permiso A2", price: 180,
+    color: "#fff", text: "var(--escape-ink)", featured: false,
+    lines: ["Plataforma + libro + seguimiento", "Cerrado 30€ · 30 min", "Abierto 45€ · 45 min", "Equipamiento de la casa"],
+    note: "Tasa DGT 100€ · 2 op · Promo 2+2",
+  },
+  {
+    id: "A1", tag: "MOTO", title: "Permiso A1", price: 180,
+    color: "#fff", text: "var(--escape-ink)", featured: false,
+    lines: ["Mismo material que A2", "Cerrado 28€ · 30 min", "Abierto 42€ · 45 min", "Desde 16 años"],
+    note: "Tasa DGT 100€ · 2 op · Promo 2+2",
+  },
+  {
+    id: "AM", tag: "CICLOMOTOR", title: "Permiso AM", price: 220,
+    color: "#fff", text: "var(--escape-ink)", featured: false,
+    lines: ["Plataforma online", "Cerrado 28€ · 30 min", "Equipamiento incluido", "Desde 15 años"],
+    note: "Tasa DGT 100€ · 2 op",
+  },
+];
+---
+
+<section style="padding:80px 56px;" id="servicios" data-c="section">
+  <div class="escape-reveal" style="margin-bottom:48px;">
+    <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.15em;color:var(--escape-red);margin-bottom:16px;">● PERMISOS Y PRECIOS</div>
+    <h2
+      style="font-family:var(--font-display);font-size:96px;line-height:0.95;letter-spacing:-0.045em;max-width:1100px;"
+      data-c="section-title"
+    >
+      Elige <span class="escape-italic" style="color:var(--escape-red);">tu camino</span><br/>
+      y nos vemos al volante.
+    </h2>
+  </div>
+
+  <div
+    class="escape-reveal-stagger"
+    style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:16px;"
+    data-c="permGrid"
+  >
+    {permisos.map((p) => (
+      <article
+        class="escape-perm-card"
+        style={`padding:28px;display:flex;flex-direction:column;gap:18px;min-height:560px;background:${p.color};color:${p.text};border:${p.featured ? "none" : "1px solid var(--escape-line)"};border-radius:${RADIUS}px;`}
+      >
+        <header style="display:flex;justify-content:space-between;align-items:flex-start;">
+          <div>
+            <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.15em;margin-bottom:6px;color:var(--escape-red);">{p.tag}</div>
+            <h3 style="font-family:var(--font-display);font-size:32px;letter-spacing:-0.02em;">{p.title}</h3>
+          </div>
+          <div
+            class="escape-italic"
+            style={`font-size:64px;font-weight:800;line-height:1;color:${p.text};opacity:${p.featured ? 0.4 : 0.15};`}
+            aria-hidden="true"
+          >{p.id}</div>
+        </header>
+
+        <div style="display:flex;align-items:baseline;gap:12px;padding:16px 0;border-top:1px solid;border-bottom:1px solid;border-color:rgba(128,128,128,0.2);">
+          <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;opacity:0.6;">desde</span>
+          <span style="font-family:var(--font-display);font-size:56px;line-height:1;letter-spacing:-0.04em;">{p.price}€</span>
+        </div>
+
+        <ul style="display:flex;flex-direction:column;gap:10px;flex:1;list-style:none;padding:0;margin:0;">
+          {p.lines.map((l) => (
+            <li style="display:flex;gap:10px;font-size:14px;line-height:1.4;align-items:flex-start;">
+              <span style="color:var(--escape-red);font-weight:700;" aria-hidden="true">→</span>
+              <span>{l}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div style={`font-size:12px;line-height:1.4;padding:12px 0;border-top:1px solid;opacity:0.8;border-color:${p.featured ? "rgba(255,255,255,0.15)" : "var(--escape-line)"};`}>
+          {p.note}
+        </div>
+
+        <a
+          href="/permisos"
+          class="escape-btn"
+          style={`${p.featured
+            ? "background:var(--escape-red);color:#fff;"
+            : "background:var(--escape-ink);color:#fff;"
+          }border:0;padding:16px 24px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-align:center;`}
+          aria-label={`Ver detalle del ${p.title}`}
+        >
+          Ver detalle <span class="escape-perm-arrow">→</span>
+        </a>
+      </article>
+    ))}
+  </div>
+</section>

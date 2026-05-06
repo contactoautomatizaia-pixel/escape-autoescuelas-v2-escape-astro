@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#C8102E" />
+
+  <title>Autoescuela en Elche · 63% Aprobados (vs 43% media) · Desde 230€ — Escape</title>
+  <meta name="description" content="Saca el carnet en Elche con un 63% de aprobados al práctico (vs 43% de media) y un 98% al teórico. Desde 2011. Coche 230€, Moto desde 180€. Prácticas sueltas, sin bonos cerrados. WhatsApp 601 30 23 09." />
+  <meta name="keywords" content="autoescuela Elche, autoescuela Elx, carnet coche Elche, permiso B Elche, carnet moto Elche, A2 Elche, A1 Elche, ciclomotor Elche, sacar carnet Elx, autoescuela barata Elche, escuela conducir Elche" />
+  <meta name="author" content="Escape Autoescuelas" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="geo.region" content="ES-VC" />
+  <meta name="geo.placename" content="Elx, Alicante" />
+  <meta name="geo.position" content="38.265;-0.701" />
+  <meta name="ICBM" content="38.265, -0.701" />
+  <link rel="canonical" href="https://escapeautoescuelas.com/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="Escape Autoescuelas" />
+  <meta property="og:title" content="Escape Autoescuelas · Carnet en Elx · 89%* aprobados" />
+  <meta property="og:description" content="Coche, moto y ciclomotor en Elx (Alicante). Plataforma online 24/7, prácticas sueltas y promo amigo 2+2." />
+  <meta property="og:url" content="https://escapeautoescuelas.com/" />
+  <meta property="og:image" content="assets/local.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Escape Autoescuelas · Carnet en Elx" />
+  <meta name="twitter:description" content="Coche, moto y ciclomotor en Elx. 89%* aprobados a la primera." />
+  <meta name="twitter:image" content="assets/local.jpg" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+  <link rel="apple-touch-icon" href="assets/logo.jpeg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Anton&family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+  <script src="https://elfsightcdn.com/platform.js" async></script>
+
+  <style>
+    html, body { margin: 0; padding: 0; background: #F5F2EC; }
+    body { font-family: "Inter", system-ui, sans-serif; }
+  </style>
+
+  <!-- Schema.org · DrivingSchool con AggregateRating (estrellas en Google) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "DrivingSchool",
+    "name": "Escape Autoescuelas",
+    "description": "Autoescuela en Elche (Elx) con un 63% de aprobados al práctico (vs 43% media) y un 98% al teórico. Coche, moto y ciclomotor. Desde 2011.",
+    "image": "https://escapeautoescuelas.com/assets/local.jpg",
+    "logo": "https://escapeautoescuelas.com/assets/logo.jpeg",
+    "url": "https://escapeautoescuelas.com/",
+    "telephone": "+34601302309",
+    "priceRange": "€€",
+    "foundingDate": "2011",
+    "slogan": "Tu carnet, en modo Escape",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Carrer Jaime Gómez Orts, 18",
+      "addressLocality": "Elx",
+      "postalCode": "03202",
+      "addressRegion": "Alicante",
+      "addressCountry": "ES"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 38.265,
+      "longitude": -0.701
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "10:00", "closes": "14:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "16:00", "closes": "20:30" }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "47",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Elche" },
+      { "@type": "City", "name": "Santa Pola" },
+      { "@type": "City", "name": "Crevillent" },
+      { "@type": "AdministrativeArea", "name": "Alicante" }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Permisos de conducir",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Permiso B (coche)" }, "price": "230", "priceCurrency": "EUR" },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Permiso A2 (moto)" }, "price": "180", "priceCurrency": "EUR" },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Permiso A1 (moto 125cc)" }, "price": "180", "priceCurrency": "EUR" },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Permiso AM (ciclomotor)" }, "price": "220", "priceCurrency": "EUR" }
+      ]
+    },
+    "sameAs": [
+      "https://instagram.com/escapeautoescuelas",
+      "https://wa.me/34601302309"
+    ]
+  }
+  </script>
+
+  <!-- Schema.org · FAQPage (rich snippets en resultados de Google) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuánto tiempo tarda en sacarse el carnet en Escape Autoescuelas?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Depende de tu ritmo. Hay quien aprueba el teórico en 3 semanas y se saca el carnet completo en 2 meses; otros lo hacen en 5–6 meses. Tú marcas el ritmo." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué necesito para matricularme?",
+        "acceptedAnswer": { "@type": "Answer", "text": "DNI o NIE en vigor, una foto tipo carnet, certificado psicotécnico (lo gestionamos en el centro médico de al lado, 15€) y rellenar el alta." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta el carnet de coche en Elche?",
+        "acceptedAnswer": { "@type": "Answer", "text": "En Escape Autoescuelas la matrícula del Permiso B son 230€ e incluye plataforma online 24/7, tests ilimitados y 2 oportunidades de DGT. Las prácticas son sueltas a 33€ los 45 minutos. Sin bonos cerrados." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Y si suspendo el examen?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Tienes 2 oportunidades incluidas en la matrícula. A partir de la tercera, solo pagas la tasa de DGT. Sin recargos." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo pagar fraccionado?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sí. La matrícula puede pagarse en 2 o 3 plazos. Las prácticas son sueltas, así que pagas según las necesites." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿La plataforma online funciona en el móvil?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sí — móvil, tablet o portátil. Funciona 24/7 y mucha gente hace los tests en el bus o en pausas del trabajo." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Schema.org · LocalBusiness Breadcrumb (para sitelinks) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://escapeautoescuelas.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Permisos y precios", "item": "https://escapeautoescuelas.com/Permisos.html" },
+      { "@type": "ListItem", "position": 3, "name": "Contacto", "item": "https://escapeautoescuelas.com/Contacto.html" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- ============================================================
+       BOTÓN WHATSAPP FLOTANTE (solo aparece en mobile, < 900px)
+       ============================================================ -->
+  <a class="wa-float"
+     href="https://wa.me/34601302309?text=Hola%2C%20quiero%20info%20de%20Escape%20Autoescuelas"
+     target="_blank"
+     rel="noopener"
+     aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.15-.174.2-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+    </svg>
+  </a>
+
+  <!-- ============================================================
+       JSX inlineado para que funcione abriendo file:// directamente.
+       Si editas algo aquí, también modifica variant-c.jsx para
+       mantener consistencia con las otras páginas.
+       ============================================================ -->
+  <script type="text/babel" data-presets="env,react">
+    const { useState, useEffect, useRef } = React;
+
+    function useReveal(once = true) {
+      const ref = useRef(null);
+      useEffect(() => {
+        const el = ref.current;
+        if (!el || typeof IntersectionObserver === "undefined") return;
+        const io = new IntersectionObserver(
+          (entries) => entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("is-visible");
+              if (once) io.unobserve(e.target);
+            }
+          }),
+          { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
+        );
+        io.observe(el);
+        return () => io.disconnect();
+      }, [once]);
+      return ref;
+    }
+
+    const PHONE_DISPLAY = "601 30 23 09";
+    const PHONE_TEL = "tel:+34601302309";
+    const WHATSAPP_URL = "https://wa.me/34601302309?text=Hola%2C%20quiero%20info%20de%20Escape%20Autoescuelas";
+    const MAPS_URL = "https://www.google.com/maps/search/?api=1&query=Carrer+Jaime+G%C3%B3mez+Orts+18+03202+Elx+Alicante";
+    const MAPS_EMBED = "https://www.google.com/maps?q=Carrer+Jaime+G%C3%B3mez+Orts+18+03202+Elx+Alicante&output=embed";
+
+    const RADIUS = 14;
+
+    function CNav() {
+      return (
+        <header style={cStyles.nav} data-c="nav">
+          <a style={cStyles.brand} data-c="brand" href="index.html" aria-label="Inicio Escape Autoescuelas">
+            <img src="assets/logo.svg" alt="Escape Autoescuelas" style={{ height: 38, filter: "brightness(0) invert(1)", display: "block" }} />
+          </a>
+          <nav style={cStyles.navLinks} data-c="navLinks" aria-label="Principal">
+            <a className="escape-nav-link" style={cStyles.navLink} href="#inicio">Inicio</a>
+            <a className="escape-nav-link" style={cStyles.navLink} href="#servicios">Servicios</a>
+            <a className="escape-nav-link" style={cStyles.navLink} href="#teoria-metodo">Teoría y método</a>
+            <a className="escape-nav-link" style={cStyles.navLink} href="#equipo">Equipo</a>
+            <a className="escape-nav-link" style={cStyles.navLink} href="#contacto">Contacto</a>
+          </nav>
+          <a href="#contacto" className="escape-btn" style={{ ...cStyles.navCta, textDecoration: "none", display: "inline-block" }}>
+            Matrícula <span className="escape-btn-arrow">→</span>
+          </a>
+        </header>
+      );
+    }
+
+    function CHero() {
+      return (
+        <section id="inicio" style={{ ...cStyles.hero, gridTemplateColumns: "1.4fr 1fr" }} data-c="hero" aria-labelledby="hero-title">
+          <div style={cStyles.heroBg} aria-hidden="true">
+            <div className="escape-blob-anim" style={cStyles.heroBlob1} />
+            <div className="escape-blob-anim-delay" style={cStyles.heroBlob2} />
+            <div style={cStyles.heroGrid} />
+          </div>
+          <div className="escape-hero-anim" style={cStyles.heroContent}>
+            <div style={cStyles.heroEyebrow}>
+              <span className="escape-dot-pulse" style={cStyles.dot} aria-hidden="true" /> AUTOESCUELA · ELX · ALICANTE
+            </div>
+            <h1 id="hero-title" data-c="hero-title" style={{ ...cStyles.heroTitle, fontSize: 88 }}>
+              <span style={cStyles.heroTL1}>Saca el carnet</span>
+              <span style={cStyles.heroTL2}>en Elche con un</span>
+              <span style={{ ...cStyles.heroTL3, fontSize: 110 }} data-c="hero-tl3" className="escape-italic">63% aprobados.</span>
+            </h1>
+            <p style={cStyles.heroLead} data-c="hero-lead">
+              (la media en Elche es 43%) — desde 2011, plataforma online 24/7 y profes que te conocen por tu nombre.
+            </p>
+            <div style={cStyles.heroCtas} data-c="hero-ctas">
+              <a href="Contacto.html" className="escape-btn escape-btn-pulse" style={{ ...cStyles.btnWhite, textDecoration: "none", display: "inline-block" }}>Empezar mi matrícula</a>
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener" className="escape-btn" style={{ ...cStyles.btnOutline, textDecoration: "none", display: "inline-block" }} aria-label="Escríbenos por WhatsApp">
+                Hablar por WhatsApp <span className="escape-btn-arrow">→</span>
+              </a>
+            </div>
+            <div style={cStyles.heroChips}>
+              <span className="escape-chip" style={cStyles.chip}>✓ Coche B · 230€</span>
+              <span className="escape-chip" style={cStyles.chip}>✓ Moto A1/A2 · 180€</span>
+              <span className="escape-chip" style={cStyles.chip}>✓ Ciclomotor AM · 220€</span>
+              <span className="escape-chip" style={cStyles.chipAccent}>★ Promo amigo 2+2</span>
+            </div>
+          </div>
+          <div className="escape-hero-anim" style={cStyles.heroSide}>
+            <div data-c="hero-bignum" style={{ ...cStyles.heroBigNum, borderRadius: RADIUS - 4 }}>
+              <span data-c="hero-bignum-val" style={cStyles.heroBigNumValue}>63<span style={{ fontSize: "0.5em" }}>%</span></span>
+              <span style={cStyles.heroBigNumLabel}>aprobados<br/>al práctico<br/><span style={{ color: "var(--escape-red)" }}>vs 43% Elche</span></span>
+            </div>
+            <div className="escape-photo-wrap" style={{ ...cStyles.heroPhotoWrap, borderRadius: RADIUS - 4 }}>
+              <img src="assets/local.jpg" alt="Local de Escape Autoescuelas en Elx" style={cStyles.heroPhoto} loading="lazy" />
+              <div style={cStyles.heroPhotoTag}>
+                <span style={{ fontFamily: "var(--font-mono)", fontSize: 10 }}>ELX · 03202</span>
+                <span style={{ fontFamily: "var(--font-display)", fontSize: 16 }}>Jaime Gómez Orts, 18</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function CStrip() {
+      const items = ["98% TEÓRICO", "★", "63% PRÁCTICO · 43% MEDIA ELCHE", "★", "DESDE 2011", "★", "PROMO AMIGO 2+2", "★", "ELX · ALICANTE", "★"];
+      const row = [...items, ...items, ...items];
+      return (
+        <div style={cStyles.strip} data-c="strip" aria-hidden="true">
+          <div className="escape-marquee-track" style={{ fontFamily: "var(--font-display)", fontSize: 56, fontStyle: "italic", letterSpacing: "-0.02em" }}>
+            {row.map((tx, i) => (
+              <span key={i} style={{ marginRight: 40, color: tx === "★" ? "var(--escape-red)" : "var(--escape-ink)" }}>{tx}</span>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    function CPermisos() {
+      const headRef = useReveal();
+      const ref = useReveal();
+      const permisos = [
+        { id: "B", tag: "COCHE", title: "Permiso B", price: 230, color: "var(--escape-ink)", text: "#fff", featured: true,
+          lines: ["Plataforma online incluida", "Clases teóricas + tests", "Seguimiento personal", "Práctica suelta 33€ · 45 min"], note: "Tasa DGT (2 oportunidades) · Promo amigo 2+2" },
+        { id: "A2", tag: "MOTO", title: "Permiso A2", price: 180, color: "#fff", text: "var(--escape-ink)",
+          lines: ["Plataforma + libro + seguimiento", "Cerrado 30€ · 30 min", "Abierto 45€ · 45 min", "Equipamiento de la casa"], note: "Tasa DGT 100€ · 2 op · Promo 2+2" },
+        { id: "A1", tag: "MOTO", title: "Permiso A1", price: 180, color: "#fff", text: "var(--escape-ink)",
+          lines: ["Mismo material que A2", "Cerrado 28€ · 30 min", "Abierto 42€ · 45 min", "Desde 16 años"], note: "Tasa DGT 100€ · 2 op · Promo 2+2" },
+        { id: "AM", tag: "CICLOMOTOR", title: "Permiso AM", price: 220, color: "#fff", text: "var(--escape-ink)",
+          lines: ["Plataforma online", "Cerrado 28€ · 30 min", "Equipamiento incluido", "Desde 15 años"], note: "Tasa DGT 100€ · 2 op" },
+      ];
+      return (
+        <section style={cStyles.section} id="servicios" data-c="section">
+          <div ref={headRef} className="escape-reveal" style={cStyles.sectionHead}>
+            <div style={cStyles.eyebrow}>● PERMISOS Y PRECIOS</div>
+            <h2 style={cStyles.sectionTitle} data-c="section-title">
+              Elige <span className="escape-italic" style={{ color: "var(--escape-red)" }}>tu camino</span><br/>
+              y nos vemos al volante.
+            </h2>
+          </div>
+          <div ref={ref} className="escape-reveal-stagger" style={cStyles.permGrid} data-c="permGrid">
+            {permisos.map((p) => (
+              <article key={p.id} className="escape-perm-card" style={{ ...cStyles.permCard, background: p.color, color: p.text, border: p.color === "#fff" ? "1px solid var(--escape-line)" : "none", borderRadius: RADIUS }}>
+                <header style={cStyles.permHead}>
+                  <div>
+                    <div style={{ ...cStyles.permTag, color: "var(--escape-red)" }}>{p.tag}</div>
+                    <h3 style={cStyles.permTitle}>{p.title}</h3>
+                  </div>
+                  <div style={{ ...cStyles.permIdBadge, color: p.text, opacity: p.featured ? 0.4 : 0.15 }} className="escape-italic" aria-hidden="true">{p.id}</div>
+                </header>
+                <div style={cStyles.permPriceRow}>
+                  <span style={{ ...cStyles.permPriceLabel, opacity: 0.6 }}>desde</span>
+                  <span style={cStyles.permPriceNum}>{p.price}€</span>
+                </div>
+                <ul style={cStyles.permLines}>
+                  {p.lines.map((l, j) => (
+                    <li key={j} style={cStyles.permLi}>
+                      <span style={{ ...cStyles.permTick, color: "var(--escape-red)" }} aria-hidden="true">→</span>
+                      <span>{l}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div style={{ ...cStyles.permNote, borderColor: p.featured ? "rgba(255,255,255,0.15)" : "var(--escape-line)" }}>{p.note}</div>
+                <a href="Permisos.html" className="escape-btn" style={{ ...(p.featured ? cStyles.btnRed : cStyles.btnDark), textDecoration: "none", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8, textAlign: "center" }} aria-label={`Ver detalle del ${p.title}`}>
+                  Ver detalle <span className="escape-perm-arrow">→</span>
+                </a>
+              </article>
+            ))}
+          </div>
+        </section>
+      );
+    }
+
+    function CStats() {
+      const ref = useReveal();
+      return (
+        <section style={cStyles.statsSection} data-c="stats">
+          <div ref={ref} className="escape-reveal-stagger" style={cStyles.statsRow} data-c="statsRow">
+            <div style={cStyles.statCell}><div style={cStyles.statNum} data-c="statNum">98%</div><div style={cStyles.statLabel}>Aprobados Teórico</div></div>
+            <div style={cStyles.statCell}><div style={cStyles.statNum} data-c="statNum">63%*</div><div style={cStyles.statLabel}>Aprobados Práctico</div></div>
+            <div style={cStyles.statCell}><div style={cStyles.statNum} data-c="statNum">+15</div><div style={cStyles.statLabel}>Años en Elx</div></div>
+            <div style={cStyles.statCell}><div style={cStyles.statNum} data-c="statNum">24/7</div><div style={cStyles.statLabel}>Plataforma online</div></div>
+          </div>
+          <div style={cStyles.statsFootnote}>* Datos reales de Escape Autoescuelas frente al 43% de media en Elche (2025).</div>
+        </section>
+      );
+    }
+
+    function CProceso() {
+      const headRef = useReveal();
+      const ref = useReveal();
+      const pasos = [
+        { n: "01", t: "Te matriculas online", d: "En 2 minutos. Recibes acceso inmediato a la plataforma." },
+        { n: "02", t: "Estudias el teórico", d: "Vídeos + tests ilimitados + tu profe siguiendo tu progreso." },
+        { n: "03", t: "Apruebas el teórico", d: "Te inscribimos en cuanto estés listo. 2 oportunidades incluidas." },
+        { n: "04", t: "Empiezas las prácticas", d: "Sueltas, sin bonos cerrados. 33€ coche, 28-45€ moto." },
+        { n: "05", t: "Carnet en la mano", d: "Y si traes a un amigo, 2 prácticas gratis para los dos." },
+      ];
+      return (
+        <section style={cStyles.section} data-c="section">
+          <div ref={headRef} className="escape-reveal" style={cStyles.sectionHead}>
+            <div style={cStyles.eyebrow}>● CÓMO FUNCIONA</div>
+            <h2 style={cStyles.sectionTitle} data-c="section-title">Cinco pasos. <span className="escape-italic" style={{ color: "var(--escape-red)" }}>Cero rollos.</span></h2>
+          </div>
+          <div ref={ref} className="escape-reveal-stagger" style={cStyles.procGrid} data-c="procGrid">
+            {pasos.map((p, i) => (
+              <div key={i} className="escape-card" style={{ ...cStyles.procCard, background: i === 0 ? "var(--escape-red)" : "#fff", color: i === 0 ? "#fff" : "var(--escape-ink)", border: i === 0 ? "none" : "1px solid var(--escape-line)", borderRadius: RADIUS - 8 }}>
+                <div className="escape-italic" style={{ fontSize: 56, opacity: i === 0 ? 0.9 : 0.2, color: i === 0 ? "#fff" : "var(--escape-red)" }}>{p.n}</div>
+                <h3 style={cStyles.procTitle}>{p.t}</h3>
+                <p style={cStyles.procText}>{p.d}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    }
+
+
+    function CEquipo() {
+      const headRef = useReveal();
+      const ref = useReveal();
+      const team = [
+        { n: "Aitor Sánchez", r: "Profesor · Coche y Moto" },
+        { n: "Juan de Dios Sánchez", r: "Profesor · Coche y Moto" },
+      ];
+      return (
+        <section style={cStyles.section} id="equipo" data-c="section">
+          <div ref={headRef} className="escape-reveal" style={cStyles.sectionHead}>
+            <div style={cStyles.eyebrow}>● EL EQUIPO</div>
+            <h2 style={cStyles.sectionTitle} data-c="section-title">Personas, no máquinas <span className="escape-italic" style={{ color: "var(--escape-red)" }}>de aprobar.</span></h2>
+          </div>
+          <div ref={ref} className="escape-reveal-stagger" style={cStyles.equipoGrid} data-c="equipoGrid">
+            {team.map((m, i) => (
+              <article key={i} className="escape-card" style={{ ...cStyles.equipoCard, borderRadius: RADIUS - 8 }}>
+                <div style={{ ...cStyles.equipoPhoto, background: "var(--escape-paper-2)", overflow: "hidden" }}>
+                  {m.n === "Aitor Sánchez" ? (
+                    <img src="assets/aitor.jpg" alt={m.n} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                  ) : m.n === "Juan de Dios Sánchez" ? (
+                    <img src="assets/juan.jpg" alt={m.n} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                  ) : (
+                    <div className="escape-placeholder" style={{ width: "100%", height: "100%" }}>FOTO · {m.n.toUpperCase()}</div>
+                  )}
+                </div>
+                <h3 style={cStyles.equipoName}>{m.n}</h3>
+                <p style={cStyles.equipoRole}>{m.r}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      );
+    }
+
+    function CContacto() {
+      const ref = useReveal();
+      return (
+        <section style={cStyles.contacto} id="contacto" data-c="contacto">
+          <div ref={ref} className="escape-reveal" style={{ ...cStyles.contactoCard, borderRadius: RADIUS }} data-c="contactoCard">
+            <div style={cStyles.contactoLeft} data-c="contactoLeft">
+              <div style={cStyles.eyebrow}>● HABLEMOS</div>
+              <h2 style={cStyles.contactoTitle} data-c="contactoTitle">Ven a vernos.<br/><span className="escape-italic" style={{ color: "var(--escape-red)" }}>Sin compromiso.</span></h2>
+              <div style={cStyles.contactoInfo} data-c="contacto-info">
+                <div><strong>Carrer Jaime Gómez Orts, 18</strong><br/><a href={MAPS_URL} target="_blank" rel="noopener" style={{ textDecoration: "none", color: "inherit" }}>03202 Elx · Alicante</a></div>
+                <div><strong>L–V · 10:00–14:00 / 16:00–20:30</strong><br/>Fines de semana atendemos por WhatsApp</div>
+                <div><a href={PHONE_TEL} style={{ textDecoration: "none", color: "inherit" }}><strong>{PHONE_DISPLAY}</strong></a></div>
+                <div>
+                  <a href="https://instagram.com/escapeautoescuelas" target="_blank" rel="noopener" style={{ textDecoration: "none", color: "inherit", display: "inline-flex", alignItems: "center", gap: 8 }}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: "var(--escape-red)" }}>
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                    <strong>@escapeautoescuelas</strong> en Instagram
+                  </a>
+                </div>
+              </div>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 32 }}>
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener" className="escape-btn" style={{ ...cStyles.btnRed, textDecoration: "none", display: "inline-block" }}>WhatsApp ahora</a>
+                <a href={PHONE_TEL} className="escape-btn" style={{ ...cStyles.btnDark, textDecoration: "none", display: "inline-block" }} aria-label={`Llamar al ${PHONE_DISPLAY}`}>Llamar {PHONE_DISPLAY}</a>
+              </div>
+            </div>
+            <a href={MAPS_URL} target="_blank" rel="noopener" className="escape-map-wrap" style={{ ...cStyles.mapWrap, display: "block", position: "relative", textDecoration: "none" }} data-c="mapWrap" aria-label="Abrir ubicación en Google Maps">
+              <iframe title="Ubicación Escape Autoescuelas" src={MAPS_EMBED} style={{ width: "100%", height: "100%", border: 0, position: "absolute", inset: 0, pointerEvents: "none" }} loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+              <div style={{ position: "absolute", left: 24, bottom: 24, background: "rgba(10,10,10,0.92)", padding: "12px 16px", borderRadius: 12, color: "#fff", display: "flex", alignItems: "center", gap: 12 }}>
+                <div>
+                  <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "rgba(255,255,255,0.7)" }}>VER EN GOOGLE MAPS</div>
+                  <div style={{ fontFamily: "var(--font-display)", fontSize: 18, marginTop: 2, color: "#fff" }}>Cómo llegar →</div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </section>
+      );
+    }
+
+    function CFooter() {
+      return (
+        <footer style={cStyles.footer} data-c="footer">
+          <div style={{ marginBottom: 40 }}>
+            <img src="assets/logo.svg" alt="Escape Autoescuelas" style={{ height: 80, filter: "brightness(0) invert(1)", display: "block" }} />
+          </div>
+          <div style={cStyles.footerBot} data-c="footer-bot">
+            <span>© 2026 Escape Autoescuelas · Elx</span>
+            <a href={PHONE_TEL} style={{ fontFamily: "var(--font-mono)", color: "rgba(255,255,255,0.85)", textDecoration: "none" }}>{PHONE_DISPLAY}</a>
+            <span style={{ fontFamily: "var(--font-mono)" }}>escapeautoescuelas.com</span>
+            <span style={{ display: "flex", gap: 12 }}>
+              <a href="legal/aviso-legal.html" style={{ color: "inherit", textDecoration: "none" }}>Aviso legal</a>
+              <a href="legal/politica-privacidad.html" style={{ color: "inherit", textDecoration: "none" }}>Privacidad</a>
+              <a href="legal/politica-cookies.html" style={{ color: "inherit", textDecoration: "none" }}>Cookies</a>
+            </span>
+          </div>
+        </footer>
+      );
+    }
+
+    const cStyles = {
+      shell: { background: "var(--escape-paper)", color: "var(--escape-ink)", width: "100%", overflow: "hidden" },
+      nav: { display: "flex", justifyContent: "space-between", alignItems: "center", padding: "20px 56px", background: "var(--escape-ink)", color: "#fff", position: "sticky", top: 0, zIndex: 50 },
+      brand: { display: "flex", alignItems: "center", textDecoration: "none" },
+      navLinks: { display: "flex", gap: 28 },
+      navLink: { color: "rgba(255,255,255,0.85)", fontSize: 14, fontWeight: 500, cursor: "pointer", textDecoration: "none" },
+      navCta: { background: "var(--escape-red)", color: "#fff", border: 0, padding: "12px 22px", borderRadius: 999, fontWeight: 700, fontSize: 14 },
+      hero: { position: "relative", padding: "80px 56px 56px", background: "var(--escape-red)", color: "#fff", display: "grid", gap: 48, overflow: "hidden", minHeight: 720 },
+      heroBg: { position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" },
+      heroBlob1: { position: "absolute", width: 600, height: 600, borderRadius: "50%", background: "rgba(0,0,0,0.18)", top: -200, right: -100, filter: "blur(20px)" },
+      heroBlob2: { position: "absolute", width: 400, height: 400, borderRadius: "50%", background: "rgba(255,255,255,0.12)", bottom: -100, left: 200, filter: "blur(40px)" },
+      heroGrid: { position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)", backgroundSize: "48px 48px" },
+      heroContent: { position: "relative", zIndex: 2, display: "flex", flexDirection: "column", justifyContent: "center" },
+      heroEyebrow: { display: "flex", alignItems: "center", gap: 10, fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.15em", color: "rgba(255,255,255,0.85)" },
+      dot: { width: 8, height: 8, borderRadius: "50%", background: "#fff" },
+      heroTitle: { display: "flex", flexDirection: "column", marginTop: 24, fontFamily: "var(--font-display)", fontSize: 144, lineHeight: 0.92, letterSpacing: "-0.045em" },
+      heroTL1: { display: "block" },
+      heroTL2: { display: "block", color: "rgba(255,255,255,0.55)" },
+      heroTL3: { display: "block", color: "#fff", fontSize: 168 },
+      heroLead: { fontSize: 20, lineHeight: 1.5, color: "rgba(255,255,255,0.92)", marginTop: 32, maxWidth: 560 },
+      heroCtas: { display: "flex", flexWrap: "wrap", gap: 12, marginTop: 32 },
+      heroChips: { display: "flex", flexWrap: "wrap", gap: 10, marginTop: 32 },
+      chip: { background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)", padding: "8px 14px", borderRadius: 999, fontSize: 13, fontWeight: 500 },
+      chipAccent: { background: "#fff", color: "var(--escape-red)", padding: "8px 14px", borderRadius: 999, fontSize: 13, fontWeight: 700 },
+      heroSide: { position: "relative", zIndex: 2, display: "flex", flexDirection: "column", gap: 24 },
+      heroBigNum: { background: "var(--escape-ink)", color: "#fff", padding: 32, display: "flex", alignItems: "center", gap: 24 },
+      heroBigNumValue: { fontFamily: "var(--font-display)", fontSize: 120, lineHeight: 0.85, letterSpacing: "-0.04em" },
+      heroBigNumLabel: { fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.7)", lineHeight: 1.4 },
+      heroPhotoWrap: { position: "relative", overflow: "hidden", flex: 1, minHeight: 320 },
+      heroPhoto: { width: "100%", height: "100%", objectFit: "cover" },
+      heroPhotoTag: { position: "absolute", left: 16, bottom: 16, background: "rgba(10,10,10,0.85)", backdropFilter: "blur(8px)", color: "#fff", padding: "10px 14px", borderRadius: 12, display: "flex", flexDirection: "column", gap: 2 },
+      btnWhite: { background: "#fff", color: "var(--escape-red)", border: 0, padding: "16px 24px", borderRadius: 999, fontWeight: 700, fontSize: 15, cursor: "pointer" },
+      btnOutline: { background: "transparent", color: "#fff", border: "1.5px solid rgba(255,255,255,0.5)", padding: "16px 24px", borderRadius: 999, fontWeight: 600, fontSize: 15, cursor: "pointer" },
+      btnRed: { background: "var(--escape-red)", color: "#fff", border: 0, padding: "16px 24px", borderRadius: 999, fontWeight: 700, fontSize: 15, cursor: "pointer" },
+      btnDark: { background: "var(--escape-ink)", color: "#fff", border: 0, padding: "14px 22px", borderRadius: 999, fontWeight: 700, fontSize: 14, cursor: "pointer" },
+      strip: { padding: "20px 0", overflow: "hidden", borderBottom: "1px solid var(--escape-line)" },
+      section: { padding: "112px 56px" },
+      sectionHead: { marginBottom: 64 },
+      eyebrow: { fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.15em", color: "var(--escape-red)", marginBottom: 16 },
+      sectionTitle: { fontFamily: "var(--font-display)", fontSize: 96, lineHeight: 0.95, letterSpacing: "-0.045em", maxWidth: 1100 },
+      permGrid: { display: "grid", gridTemplateColumns: "1.3fr 1fr 1fr 1fr", gap: 16 },
+      permCard: { padding: 28, display: "flex", flexDirection: "column", gap: 18, minHeight: 560 },
+      permHead: { display: "flex", justifyContent: "space-between", alignItems: "flex-start" },
+      permTag: { fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.15em", marginBottom: 6 },
+      permTitle: { fontFamily: "var(--font-display)", fontSize: 32, letterSpacing: "-0.02em" },
+      permIdBadge: { fontSize: 64, fontWeight: 800, lineHeight: 1 },
+      permPriceRow: { display: "flex", alignItems: "baseline", gap: 12, padding: "16px 0", borderTop: "1px solid currentColor", borderBottom: "1px solid currentColor", borderColor: "rgba(128,128,128,0.2)" },
+      permPriceLabel: { fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.1em" },
+      permPriceNum: { fontFamily: "var(--font-display)", fontSize: 56, lineHeight: 1, letterSpacing: "-0.04em" },
+      permLines: { display: "flex", flexDirection: "column", gap: 10, flex: 1 },
+      permLi: { display: "flex", gap: 10, fontSize: 14, lineHeight: 1.4, alignItems: "flex-start" },
+      permTick: { fontWeight: 700 },
+      permNote: { fontSize: 12, lineHeight: 1.4, padding: "12px 0", borderTop: "1px solid", opacity: 0.8 },
+      statsSection: { padding: "80px 56px", background: "var(--escape-ink)", color: "#fff" },
+      statsRow: { display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 32 },
+      statCell: { borderLeft: "1px solid rgba(255,255,255,0.15)", paddingLeft: 24 },
+      statNum: { fontFamily: "var(--font-display)", fontSize: 96, lineHeight: 0.9, letterSpacing: "-0.04em", color: "var(--escape-red)" },
+      statLabel: { fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.1em", color: "rgba(255,255,255,0.7)", marginTop: 12 },
+      statsFootnote: { marginTop: 32, fontFamily: "var(--font-mono)", fontSize: 11, color: "rgba(255,255,255,0.5)" },
+      procGrid: { display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 16 },
+      procCard: { padding: 24, minHeight: 220, display: "flex", flexDirection: "column", gap: 8 },
+      procTitle: { fontFamily: "var(--font-display)", fontSize: 22, letterSpacing: "-0.02em", marginTop: "auto" },
+      procText: { fontSize: 13, lineHeight: 1.5, opacity: 0.85 },
+      equipoGrid: { display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 20 },
+      equipoCard: { background: "#fff", border: "1px solid var(--escape-line)", overflow: "hidden", padding: 0 },
+      equipoPhoto: { aspectRatio: "4/5", width: "100%" },
+      equipoName: { fontFamily: "var(--font-display)", fontSize: 24, letterSpacing: "-0.02em", padding: "20px 20px 4px" },
+      equipoRole: { fontSize: 14, color: "var(--escape-ink-2)", padding: "0 20px 20px" },
+      contacto: { padding: "112px 56px", background: "var(--escape-paper-2)" },
+      contactoCard: { background: "#fff", overflow: "hidden", display: "grid", gridTemplateColumns: "1.2fr 1fr", border: "1px solid var(--escape-line)" },
+      contactoLeft: { padding: 56 },
+      contactoTitle: { fontFamily: "var(--font-display)", fontSize: 88, lineHeight: 0.95, letterSpacing: "-0.04em", marginTop: 16 },
+      contactoInfo: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginTop: 32, paddingTop: 24, borderTop: "1px solid var(--escape-line)", fontSize: 15, lineHeight: 1.5 },
+      mapWrap: { position: "relative", background: "var(--escape-ink)", minHeight: 480 },
+      footer: { background: "var(--escape-red)", color: "#fff", padding: "80px 56px 32px", overflow: "hidden" },
+      footerHero: { fontFamily: "var(--font-display)", fontSize: 280, lineHeight: 0.85, color: "#fff" },
+      footerSub: { marginTop: -16 },
+      footerBot: { display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12, borderTop: "1px solid rgba(255,255,255,0.2)", marginTop: 64, paddingTop: 24, fontSize: 13, color: "rgba(255,255,255,0.85)" },
+    };
+
+    /* ============================================================
+       NUEVAS SECCIONES — Teoría-Método · Carrusel · Reseñas · FAQ
+       ============================================================ */
+
+    /* ----- TEORÍA Y MÉTODO (98% aprobados al teórico) ----- */
+    function CTeoriaMetodo() {
+      const headRef = useReveal();
+      const cardsRef = useReveal();
+      const items = [
+        { n: "01", t: "Plataforma online 24/7", d: "Vídeos por temas, manual digital y tests ilimitados. Estudia desde el bus, en pausas del curro o en el sofá." },
+        { n: "02", t: "Tests cronometrados estilo DGT", d: "Mismas preguntas, mismo formato, mismo tiempo. Llegas al examen real sin sorpresas." },
+        { n: "03", t: "Seguimiento personal", d: "Tu profe ve tu progreso real y te avisa cuando estás listo de verdad. No vas a ciegas." },
+        { n: "04", t: "Tests presenciales en la academia", d: "Ven a la autoescuela y haz tests con nosotros las veces que necesites antes del examen." },
+      ];
+      return (
+        <section id="teoria-metodo" style={cStyles.section} data-c="section">
+          <div ref={headRef} className="escape-reveal" style={cStyles.sectionHead}>
+            <div style={cStyles.eyebrow}>● TEORÍA Y MÉTODO</div>
+            <h2 style={cStyles.sectionTitle} data-c="section-title">
+              <span className="escape-italic" style={{ color: "var(--escape-red)" }}>98%</span> al teórico.<br/>
+              Así lo conseguimos.
+            </h2>
+            <p style={{ fontSize: 18, lineHeight: 1.5, color: "var(--escape-ink-2)", marginTop: 24, maxWidth: 720 }}>
+              No es magia ni suerte: es un método trabajado durante 15 años en Elx. Plataforma propia, seguimiento real y tests al estilo DGT desde el primer día.
+            </p>
+          </div>
+          <div ref={cardsRef} className="escape-reveal-stagger" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }} data-c="teoriaGrid">
+            {items.map((p, i) => (
+              <div key={i} className="escape-card" style={{ background: "#fff", border: "1px solid var(--escape-line)", borderRadius: 14, padding: 24, display: "flex", flexDirection: "column", gap: 8 }}>
+                <div className="escape-italic" style={{ fontSize: 48, opacity: 0.18, color: "var(--escape-red)", lineHeight: 1 }}>{p.n}</div>
+                <h3 style={{ fontFamily: "var(--font-display)", fontSize: 22, letterSpacing: "-0.02em", marginTop: "auto" }}>{p.t}</h3>
+                <p style={{ fontSize: 14, lineHeight: 1.5, color: "var(--escape-ink-2)" }}>{p.d}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    }
+
+    /* ----- CARRUSEL DE FOTOS (auto-advance cada 3s, hover pausa) ----- */
+    function CCarrusel() {
+      const [idx, setIdx] = useState(0);
+      const [paused, setPaused] = useState(false);
+      const slides = [
+        { src: "assets/local.jpg",    alt: "Fachada del local en Carrer Jaime Gómez Orts 18, Elx", label: "FACHADA" },
+        { src: "assets/entrada.jpg",  alt: "Entrada y recepción de Escape Autoescuelas",           label: "RECEPCIÓN" },
+        { src: "assets/despacho.jpg", alt: "Oficina y zona de matrícula",                          label: "OFICINA" },
+        { ph: "FLOTA · COCHES",       label: "FLOTA · COCHES" },
+        { ph: "FLOTA · MOTOS",        label: "FLOTA · MOTOS" },
+        { ph: "CIRCUITO CERRADO",     label: "CIRCUITO" },
+      ];
+      const headRef = useReveal();
+
+      useEffect(() => {
+        if (paused) return;
+        const t = setInterval(() => setIdx((i) => (i + 1) % slides.length), 3000);
+        return () => clearInterval(t);
+      }, [paused, slides.length]);
+
+      const go = (i) => setIdx(((i % slides.length) + slides.length) % slides.length);
+
+      return (
+        <section style={cStyles.section} data-c="section">
+          <div ref={headRef} className="escape-reveal" style={cStyles.sectionHead}>
+            <div style={cStyles.eyebrow}>● EL LOCAL</div>
+            <h2 style={cStyles.sectionTitle} data-c="section-title">
+              Conoce <span className="escape-italic" style={{ color: "var(--escape-red)" }}>nuestro espacio.</span>
+            </h2>
+          </div>
+
+          <div className="carrusel" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+            <div className="carrusel-window">
+              <div className="carrusel-track" style={{ transform: `translateX(-${idx * 100}%)` }}>
+                {slides.map((s, i) => (
+                  <div key={i} className="carrusel-slide">
+                    {s.src ? (
+                      <img src={s.src} alt={s.alt} loading="lazy" />
+                    ) : (
+                      <div className="escape-placeholder" style={{ width: "100%", height: "100%", fontSize: 14 }}>{s.ph}</div>
+                    )}
+                    <div style={{ position: "absolute", left: 16, bottom: 16, background: "rgba(10,10,10,0.85)", backdropFilter: "blur(4px)", color: "#fff", padding: "8px 12px", borderRadius: 10, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.1em" }}>
+                      {s.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <button className="carrusel-btn carrusel-btn-prev" onClick={() => go(idx - 1)} aria-label="Anterior">‹</button>
+            <button className="carrusel-btn carrusel-btn-next" onClick={() => go(idx + 1)} aria-label="Siguiente">›</button>
+            <div className="carrusel-dots" role="tablist">
+              {slides.map((_, i) => (
+                <button key={i} className={`carrusel-dot ${i === idx ? "is-active" : ""}`} onClick={() => go(i)} aria-label={`Ir a la imagen ${i + 1}`} />
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function CResenas() {
+      const headRef = useReveal();
+      return (
+        <section style={cStyles.section} data-c="section">
+          <div ref={headRef} className="escape-reveal" style={cStyles.sectionHead}>
+            <div style={cStyles.eyebrow}>● TESTIMONIOS REALES</div>
+            <h2 style={cStyles.sectionTitle} data-c="section-title">
+              Lo que dicen <span className="escape-italic" style={{ color: "var(--escape-red)" }}>nuestros alumnos</span><br/>
+              en Google.
+            </h2>
+          </div>
+          <div className="elfsight-app-612dd2a2-bc07-4d72-900d-5aaf79aced2c" data-elfsight-app-lazy></div>
+        </section>
+      );
+    }
+
+    function CFaq() {
+      const headRef = useReveal();
+      const listRef = useReveal();
+      const [openIdx, setOpenIdx] = useState(0);
+      const faqs = [
+        { q: "¿Cuánto tiempo tarda en sacarse el carnet?",
+          a: "Depende de tu ritmo. Hay quien aprueba el teórico en 3 semanas y se saca el carnet completo en 2 meses; otros lo hacen en 5–6. Tú marcas el ritmo — nosotros te seguimos." },
+        { q: "¿Qué necesito para matricularme?",
+          a: "DNI o NIE en vigor, una foto tipo carnet, certificado psicotécnico (te lo gestionamos en el centro médico de al lado, 15€) y rellenar el alta. Ya está." },
+        { q: "¿Y si suspendo?",
+          a: "Tienes 2 oportunidades incluidas en la matrícula. A partir de la tercera, solo pagas la tasa de DGT. Sin recargos, sin sustos." },
+        { q: "¿Puedo pagar fraccionado?",
+          a: "Sí. La matrícula puede pagarse en 2 o 3 plazos. Las prácticas son sueltas, así que pagas según las necesites — sin bonos cerrados que te obliguen a comprar de más." },
+        { q: "¿Necesito haber estudiado algo de tráfico antes?",
+          a: "No. Los manuales y vídeos de la plataforma están pensados para empezar de cero. Si tienes dudas, pregunta al profe en clase o por WhatsApp." },
+        { q: "¿La plataforma online va bien en el móvil?",
+          a: "Sí — móvil, tablet o portátil, lo que prefieras. Mucha gente hace los tests en el bus o en pausas del curro. Funciona 24/7." },
+        { q: "¿Vais con cita o puedo pasarme directamente?",
+          a: "Pásate cuando quieras en horario L–V 10:00–14:00 / 16:00–20:30. Si es fin de semana, puedes llamarnos o escribirnos por WhatsApp sin problema." },
+      ];
+      return (
+        <section style={cStyles.section} data-c="section">
+          <div ref={headRef} className="escape-reveal" style={cStyles.sectionHead}>
+            <div style={cStyles.eyebrow}>● PREGUNTAS FRECUENTES</div>
+            <h2 style={cStyles.sectionTitle} data-c="section-title">
+              Lo que <span className="escape-italic" style={{ color: "var(--escape-red)" }}>te preguntas</span><br/>
+              antes de empezar.
+            </h2>
+          </div>
+          <div ref={listRef} className="escape-reveal-stagger" style={{ maxWidth: 900, margin: "0 auto", display: "flex", flexDirection: "column", gap: 8 }} data-c="faqList">
+            {faqs.map((f, i) => {
+              const open = openIdx === i;
+              return (
+                <div key={i} style={{ background: "#fff", border: `1px solid ${open ? "rgba(200,16,46,0.3)" : "var(--escape-line)"}`, borderRadius: 14, overflow: "hidden", transition: "border-color 0.25s var(--ease-out)" }}>
+                  <button
+                    onClick={() => setOpenIdx(open ? -1 : i)}
+                    aria-expanded={open}
+                    style={{ width: "100%", textAlign: "left", padding: "20px 24px", background: "transparent", border: 0, display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16, cursor: "pointer", fontFamily: "inherit", color: "inherit" }}>
+                    <span style={{ fontFamily: "var(--font-display)", fontSize: 18, letterSpacing: "-0.01em" }}>{f.q}</span>
+                    <span aria-hidden="true" style={{ width: 32, height: 32, borderRadius: "50%", background: open ? "var(--escape-red)" : "var(--escape-paper-2)", color: open ? "#fff" : "var(--escape-ink)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, fontWeight: 700, flexShrink: 0, transition: "all 0.3s var(--ease-out)", transform: open ? "rotate(45deg)" : "rotate(0)", lineHeight: 1 }}>+</span>
+                  </button>
+                  {open && (
+                    <div style={{ padding: "0 24px 20px", fontSize: 15, lineHeight: 1.6, color: "var(--escape-ink-2)", animation: "escape-fade-in 0.3s var(--ease-out) both" }}>
+                      {f.a}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          <div style={{ textAlign: "center", marginTop: 40 }}>
+            <p style={{ fontSize: 16, color: "var(--escape-ink-2)", marginBottom: 16 }}>¿No está tu duda aquí?</p>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener" className="escape-btn"
+              style={{ background: "var(--escape-red)", color: "#fff", padding: "14px 24px", borderRadius: 999, fontWeight: 700, fontSize: 14, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8 }}>
+              Pregúntanos por WhatsApp <span className="escape-btn-arrow">→</span>
+            </a>
+          </div>
+        </section>
+      );
+    }
+
+    function App() {
+      return (
+        <div className="escape-root" style={{ ...cStyles.shell }}>
+          <CNav />
+          <CHero />
+          <CStrip />
+          <CPermisos />
+          <CStats />
+          <CProceso />
+          <CTeoriaMetodo />
+          <CCarrusel />
+          <CResenas />
+          <CEquipo />
+          <CFaq />
+          <CContacto />
+          <CFooter />
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+
+  <!-- Mouse-tracking spotlight (sigue al cursor sobre cualquier card) -->
+  <script>
+    (() => {
+      let pending = null;
+      document.addEventListener("pointermove", (e) => {
+        if (pending) return;
+        pending = e;
+        requestAnimationFrame(() => {
+          const ev = pending; pending = null;
+          const el = ev.target && ev.target.closest && ev.target.closest(".escape-card, .escape-perm-card");
+          if (!el) return;
+          const r = el.getBoundingClientRect();
+          el.style.setProperty("--mx", (ev.clientX - r.left) + "px");
+          el.style.setProperty("--my", (ev.clientY - r.top) + "px");
+        });
+      }, { passive: true });
+    })();
+  </script>
+
+  <!-- ============================================================
+       FADE-IN ON SCROLL — IntersectionObserver global
+       Pon class="fade-in" o class="reveal" a cualquier elemento
+       y se mostrará suavemente al entrar al viewport.
+       ============================================================ -->
+  <script>
+    (() => {
+      if (typeof IntersectionObserver === "undefined") {
+        document.querySelectorAll(".fade-in, .reveal").forEach((el) => el.classList.add("is-visible"));
+        return;
+      }
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: "0px 0px -60px 0px" });
+
+      const watchAll = () => {
+        document.querySelectorAll(".fade-in:not(.is-visible), .reveal:not(.is-visible)")
+                .forEach((el) => obs.observe(el));
+      };
+      watchAll();
+      // Re-observa cuando React monta nuevo contenido
+      new MutationObserver(watchAll).observe(document.body, { childList: true, subtree: true });
+    })();
+  </script>
+
+  <script src="cookies-banner.js"></script>
+</body>
+</html>

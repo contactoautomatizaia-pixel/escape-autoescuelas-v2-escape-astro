@@ -1,0 +1,41 @@
+---
+const team = [
+  { n: "Juan de Dios Sánchez", r: "Profesor - Coche y Moto", img: "/assets/juan.webp",  alt: "Juan de Dios Sánchez, profesor de Escape Autoescuelas" },
+  { n: "Aitor Sánchez",        r: "Profesor - Coche y Moto", img: "/assets/aitor.webp", alt: "Aitor Sánchez, profesor de Escape Autoescuelas" },
+];
+---
+
+<section style="padding:80px 56px;" id="equipo" data-c="section">
+  <div class="escape-reveal" style="margin-bottom:48px;">
+    <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.15em;color:var(--escape-red);margin-bottom:16px;">&#9679; EL EQUIPO</div>
+    <h2
+      style="font-family:var(--font-display);font-size:96px;line-height:0.95;letter-spacing:-0.045em;"
+      data-c="section-title"
+    >
+      Dos profes. Mil carnets.<br/><span class="escape-italic" style="color:var(--escape-red);">Un trato sin igual.</span>
+    </h2>
+  </div>
+
+  <div
+    class="escape-reveal-stagger"
+    style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:900px;margin:0 auto;"
+    data-c="equipoGrid"
+  >
+    {team.map((m) => (
+      <article class="escape-card" style="background:#fff;border:1px solid var(--escape-line);overflow:hidden;padding:0;border-radius:14px;">
+        <div style="aspect-ratio:4/5;width:100%;overflow:hidden;background:var(--escape-paper-2);">
+          <img
+            src={m.img}
+            alt={m.alt}
+            style="width:100%;height:100%;object-fit:cover;object-position:center top;"
+            loading="lazy"
+            width="400"
+            height="500"
+          />
+        </div>
+        <h3 style="font-family:var(--font-display);font-size:24px;letter-spacing:-0.02em;padding:20px 20px 4px;">{m.n}</h3>
+        <p style="font-size:14px;color:var(--escape-ink-2);padding:0 20px 20px;">{m.r}</p>
+      </article>
+    ))}
+  </div>
+</section>

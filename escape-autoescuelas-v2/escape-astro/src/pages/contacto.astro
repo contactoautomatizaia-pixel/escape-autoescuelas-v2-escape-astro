@@ -1,0 +1,280 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import ContactForm from "../components/ContactForm.jsx";
+
+const PHONE_DISPLAY = "601 30 23 09";
+const PHONE_TEL = "tel:+34601302309";
+const WHATSAPP_URL = "https://wa.me/34601302309?text=Hola%2C%20quiero%20info%20de%20Escape%20Autoescuelas";
+const MAPS_URL = "https://www.google.com/maps/search/?api=1&query=Carrer+Jaime+G%C3%B3mez+Orts+18+03202+Elx+Alicante";
+const MAPS_EMBED = "https://www.google.com/maps?q=Carrer+Jaime+G%C3%B3mez+Orts+18+03202+Elx+Alicante&output=embed";
+
+const schemaContacto = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contacto · Escape Autoescuelas",
+  "url": "https://escapeautoescuelas.com/contacto",
+  "mainEntity": {
+    "@type": "DrivingSchool",
+    "name": "Escape Autoescuelas",
+    "telephone": "+34601302309",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Carrer Jaime Gómez Orts, 18",
+      "addressLocality": "Elx",
+      "postalCode": "03202",
+      "addressRegion": "Alicante",
+      "addressCountry": "ES"
+    }
+  }
+});
+---
+
+<Layout
+  title="Contacto — Escape Autoescuelas · Elx (Alicante)"
+  description="Contacta con Escape Autoescuelas: WhatsApp 601 30 23 09, Carrer Jaime Gómez Orts 18, 03202 Elx. Te llamamos en menos de 24h sin compromiso."
+  canonical="https://escapeautoescuelas.com/contacto"
+  schemas={[schemaContacto]}
+>
+  <div class="escape-root" style="background:var(--escape-paper);color:var(--escape-ink);width:100%;overflow:hidden;">
+    <Nav activePage="contacto" />
+
+    <!-- Formulario + info -->
+    <section
+      class="escape-reveal"
+      style="padding:120px 56px 80px;display:grid;grid-template-columns:1fr 1fr;gap:80px;"
+      data-c="contactoFormGrid"
+    >
+      <!-- Columna izquierda: info -->
+      <div>
+        <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.15em;color:var(--escape-red);margin-bottom:16px;">● HABLEMOS</div>
+        <h1
+          style="font-family:var(--font-display);font-size:clamp(52px,9vw,120px);line-height:0.92;letter-spacing:-0.045em;"
+          data-c="contactoFormTitle"
+        >
+          Pásate o<br/>
+          <span class="escape-italic" style="color:var(--escape-red);">escríbenos.</span>
+        </h1>
+        <p style="font-size:19px;line-height:1.65;color:var(--escape-ink-2);margin-top:28px;max-width:520px;">
+          Te resolvemos dudas, te enseñamos el local y te explicamos lo que mejor te encaja. Sin compromiso, sin venderte nada raro.
+        </p>
+
+        <div
+          style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px;padding-top:32px;border-top:1px solid var(--escape-line);"
+          data-c="contacto-info"
+        >
+          <div>
+            <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.15em;color:var(--escape-mute);">DIRECCIÓN</div>
+            <div style="font-size:16px;margin-top:8px;line-height:1.5;">
+              <a href={MAPS_URL} target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
+                <strong>Carrer Jaime Gómez Orts, 18</strong><br/>03202 Elx · Alicante
+              </a>
+            </div>
+          </div>
+          <div>
+            <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.15em;color:var(--escape-mute);">TELÉFONO / WHATSAPP</div>
+            <div style="font-size:16px;margin-top:8px;line-height:1.5;">
+              <button
+                id="copy-phone-btn"
+                title="Copiar número"
+                style="background:none;border:none;padding:0;cursor:pointer;font:inherit;color:inherit;display:inline-flex;align-items:center;gap:8px;text-align:left;"
+              >
+                <strong>{PHONE_DISPLAY}</strong>
+                <svg id="copy-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.4;flex-shrink:0;" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              </button>
+            </div>
+            <!-- Toast copiado -->
+            <div id="copy-toast" style="display:inline-block;margin-top:4px;font-size:12px;font-family:var(--font-mono);color:#10a050;font-weight:600;opacity:0;transition:opacity 0.25s;letter-spacing:0.05em;">¡Copiado!</div>
+          </div>
+          <div>
+            <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.15em;color:var(--escape-mute);">HORARIO</div>
+            <div style="font-size:16px;margin-top:8px;line-height:1.5;">
+              L–V · 10:00–14:00 / 16:00–20:30<br/>
+              <span style="font-size:13px;opacity:0.7;">Fines de semana atendemos por WhatsApp</span>
+            </div>
+            <div id="availability-badge" style="display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:5px 12px;border-radius:999px;font-size:12px;font-weight:600;font-family:var(--font-mono);letter-spacing:0.08em;background:rgba(0,0,0,0.06);color:var(--escape-ink);">
+              <span id="avail-dot" style="width:7px;height:7px;border-radius:50%;background:#aaa;display:inline-block;"></span>
+              <span id="avail-text">Comprobando…</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.15em;color:var(--escape-mute);">REDES</div>
+            <div style="font-size:16px;margin-top:8px;line-height:1.5;">
+              <a
+                href="https://instagram.com/escapeautoescuelas"
+                target="_blank"
+                rel="noopener"
+                style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px;"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--escape-red);flex-shrink:0;">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+                <div>
+                  <strong>@escapeautoescuelas</strong>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;">
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener"
+            class="escape-btn"
+            style="background:#25D366;color:#fff;padding:16px 24px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.15-.174.2-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            WhatsApp ahora
+          </a>
+          <a
+            href={PHONE_TEL}
+            class="escape-btn"
+            style="background:transparent;color:var(--escape-ink);border:1.5px solid var(--escape-ink);padding:16px 24px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;display:inline-block;"
+          >Llamar {PHONE_DISPLAY}</a>
+        </div>
+      </div>
+
+      <!-- Columna derecha: trust badges + formulario React -->
+      <div>
+        <!-- Trust badges -->
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px;">
+          <div style="display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--escape-line);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--escape-red)" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            4,8 en Google
+          </div>
+          <div style="display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--escape-line);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--escape-red)" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            +500 alumnos
+          </div>
+          <div style="display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--escape-line);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--escape-red)" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Resp. en &lt; 2 min
+          </div>
+        </div>
+        <ContactForm client:load />
+      </div>
+    </section>
+
+    <!-- Mapa grande -->
+    <section class="escape-reveal" style="padding:0 56px 96px;">
+      <div
+        class="escape-map-wrap"
+        style="position:relative;aspect-ratio:16/6;border-radius:28px;overflow:hidden;background:var(--escape-ink);"
+      >
+        <iframe
+          title="Ubicación Escape Autoescuelas"
+          src={MAPS_EMBED}
+          style="width:100%;height:100%;border:0;position:absolute;inset:0;"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+        <a
+          href={MAPS_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          style="position:absolute;left:32px;bottom:32px;background:rgba(10,10,10,0.92);padding:16px 20px;border-radius:12px;color:#fff;display:flex;align-items:center;gap:16px;text-decoration:none;"
+          aria-label="Abrir Escape Autoescuelas en Google Maps"
+        >
+          <div>
+            <div style="font-family:var(--font-mono);font-size:11px;color:rgba(255,255,255,0.7);">VER EN GOOGLE MAPS</div>
+            <div style="font-family:var(--font-display);font-size:22px;margin-top:4px;">Escape Autoescuelas</div>
+            <div style="font-size:13px;margin-top:4px;opacity:0.85;">Carrer Jaime Gómez Orts, 18 · 03202 Elx</div>
+          </div>
+          <div style="font-family:var(--font-display);font-size:28px;color:var(--escape-red);margin-left:12px;">→</div>
+        </a>
+      </div>
+    </section>
+
+
+    <script is:inline>
+      // ── Indicador de disponibilidad ──────────────────────────────────────
+      (function() {
+        var dot  = document.getElementById('avail-dot');
+        var text = document.getElementById('avail-text');
+        if (!dot || !text) return;
+
+        var now = new Date();
+        var parts = new Intl.DateTimeFormat('es-ES', {
+          timeZone: 'Europe/Madrid',
+          weekday: 'long', hour: 'numeric', minute: 'numeric', hour12: false
+        }).formatToParts(now);
+
+        var weekday = parts.find(function(p) { return p.type === 'weekday'; }).value.toLowerCase();
+        var hour    = parseInt(parts.find(function(p) { return p.type === 'hour'; }).value, 10);
+        var min     = parseInt(parts.find(function(p) { return p.type === 'minute'; }).value, 10);
+        var t = hour * 60 + min;
+
+        var isWeekday = ['lunes','martes','miércoles','jueves','viernes'].indexOf(weekday) !== -1;
+        var isMorning   = t >= 600  && t < 840;   // 10:00–14:00
+        var isAfternoon = t >= 960  && t < 1230;  // 16:00–20:30
+        var isOpen = isWeekday && (isMorning || isAfternoon);
+
+        if (isOpen) {
+          dot.style.background  = '#10a050';
+          dot.style.boxShadow   = '0 0 0 3px rgba(16,160,80,0.2)';
+          text.textContent      = 'Abiertos ahora';
+          document.getElementById('availability-badge').style.background = 'rgba(16,160,80,0.08)';
+          document.getElementById('availability-badge').style.color = '#0a7a38';
+        } else {
+          // Calcular próxima apertura
+          var next = '';
+          if (!isWeekday || t >= 1230) {
+            // Buscar siguiente día hábil
+            var days = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+            var idx = days.indexOf(weekday);
+            var nextDay = '';
+            for (var i = 1; i <= 7; i++) {
+              var d = days[(idx + i) % 7];
+              if (['lunes','martes','miércoles','jueves','viernes'].indexOf(d) !== -1) {
+                nextDay = d.charAt(0).toUpperCase() + d.slice(1);
+                break;
+              }
+            }
+            next = nextDay + ' a las 10:00';
+          } else if (t < 600) {
+            next = 'hoy a las 10:00';
+          } else if (t >= 840 && t < 960) {
+            next = 'hoy a las 16:00';
+          }
+          dot.style.background = '#bbb';
+          text.textContent = next ? 'Cerrado · Abrimos ' + next : 'Cerrado';
+        }
+      })();
+
+      // ── Click-to-copy teléfono ───────────────────────────────────────────
+      (function() {
+        var btn   = document.getElementById('copy-phone-btn');
+        var toast = document.getElementById('copy-toast');
+        if (!btn || !toast) return;
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText('601302309').then(function() {
+            toast.style.opacity = '1';
+            setTimeout(function() { toast.style.opacity = '0'; }, 2200);
+          });
+        });
+      })();
+    </script>
+
+    <style>
+
+      @media (max-width: 900px) {
+        [data-c="contactoFormGrid"] {
+          grid-template-columns: 1fr !important;
+          padding: 100px 24px 64px !important;
+          gap: 48px !important;
+        }
+        [data-c="contactoFormTitle"] { font-size: clamp(48px,12vw,80px) !important; }
+        [data-c="contacto-info"]     { grid-template-columns: 1fr !important; }
+        .escape-map-wrap             { aspect-ratio: 4/3 !important; border-radius: 20px !important; }
+        section[style*="0 56px 96px"] { padding: 0 24px 64px !important; }
+      }
+    </style>
+
+    <Footer />
+  </div>
+</Layout>

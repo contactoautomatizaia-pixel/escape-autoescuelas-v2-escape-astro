@@ -1,0 +1,109 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import Strip from "../components/Strip.astro";
+import PermisosCards from "../components/PermisosCards.astro";
+import Stats from "../components/Stats.astro";
+import Proceso from "../components/Proceso.astro";
+import TeoriaMetodo from "../components/TeoriaMetodo.astro";
+import Carrusel from "../components/Carrusel.jsx";
+import Resenas from "../components/Resenas.astro";
+import Aprobados from "../components/Aprobados.astro";
+import Equipo from "../components/Equipo.astro";
+import Faq from "../components/Faq.jsx";
+import ContactoSection from "../components/ContactoSection.astro";
+import Footer from "../components/Footer.astro";
+
+const schemaDrivingSchool = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "DrivingSchool",
+  "name": "Escape Autoescuelas",
+  "description": "Autoescuela en Elche (Elx) con un 63% de aprobados al práctico (vs 43% media) y un 98% al teórico. Coche, moto y ciclomotor. Desde 2011.",
+  "image": "https://escapeautoescuelas.com/assets/og-image.png",
+  "logo": "https://escapeautoescuelas.com/assets/logo.svg",
+  "url": "https://escapeautoescuelas.com/",
+  "telephone": "+34601302309",
+  "priceRange": "€€",
+  "foundingDate": "2011",
+  "slogan": "Tu carnet, en modo Escape",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Carrer Jaime Gómez Orts, 18",
+    "addressLocality": "Elx",
+    "postalCode": "03202",
+    "addressRegion": "Alicante",
+    "addressCountry": "ES"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 38.265, "longitude": -0.701 },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "10:00", "closes": "14:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "16:00", "closes": "20:30" }
+  ],
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": 4.8, "reviewCount": 47, "bestRating": 5, "worstRating": 1 },
+  "areaServed": [
+    { "@type": "City", "name": "Elche" },
+    { "@type": "City", "name": "Santa Pola" },
+    { "@type": "City", "name": "Crevillent" },
+    { "@type": "AdministrativeArea", "name": "Alicante" }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Permisos de conducir",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Permiso B (coche)" }, "price": 230, "priceCurrency": "EUR" },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Permiso A2 (moto)" }, "price": 180, "priceCurrency": "EUR" },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Permiso A1 (moto 125cc)" }, "price": 180, "priceCurrency": "EUR" },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Permiso AM (ciclomotor)" }, "price": 220, "priceCurrency": "EUR" }
+    ]
+  },
+  "sameAs": ["https://instagram.com/escapeautoescuelas", "https://wa.me/34601302309"]
+});
+
+const schemaFaq = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "¿Cuánto tiempo tarda en sacarse el carnet en Escape Autoescuelas?", "acceptedAnswer": { "@type": "Answer", "text": "Depende de tu ritmo. Hay quien aprueba el teórico en 3 semanas y se saca el carnet completo en 2 meses; otros lo hacen en 5–6 meses. Tú marcas el ritmo." } },
+    { "@type": "Question", "name": "¿Qué necesito para matricularme?", "acceptedAnswer": { "@type": "Answer", "text": "DNI o NIE en vigor, una foto tipo carnet, certificado psicotécnico (lo gestionamos en el centro médico de al lado, 15€) y rellenar el alta." } },
+    { "@type": "Question", "name": "¿Cuánto cuesta el carnet de coche en Elche?", "acceptedAnswer": { "@type": "Answer", "text": "En Escape Autoescuelas la matrícula del Permiso B son 230€ e incluye plataforma online 24/7, tests ilimitados y 2 oportunidades de DGT. Las prácticas son sueltas a 33€ los 45 minutos. Sin bonos cerrados." } },
+    { "@type": "Question", "name": "¿Y si suspendo el examen?", "acceptedAnswer": { "@type": "Answer", "text": "Tienes 2 oportunidades incluidas en la matrícula. A partir de la tercera, solo pagas la tasa de DGT. Sin recargos." } },
+    { "@type": "Question", "name": "¿Puedo pagar fraccionado?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. La matrícula puede pagarse en 2 o 3 plazos. Las prácticas son sueltas, así que pagas según las necesites." } }
+  ]
+});
+
+const schemaBreadcrumb = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://escapeautoescuelas.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Permisos y precios", "item": "https://escapeautoescuelas.com/permisos" },
+    { "@type": "ListItem", "position": 3, "name": "Contacto", "item": "https://escapeautoescuelas.com/contacto" }
+  ]
+});
+---
+
+<Layout
+  title="Autoescuela en Elche · 63% Aprobados (vs 43% media) · Desde 230€ — Escape"
+  description="Saca el carnet en Elche con un 63% de aprobados al práctico (vs 43% de media) y un 98% al teórico. Desde 2011. Coche 230€, Moto desde 180€. Prácticas sueltas, sin bonos cerrados. WhatsApp 601 30 23 09."
+  canonical="https://escapeautoescuelas.com/"
+  schemas={[schemaDrivingSchool, schemaFaq, schemaBreadcrumb]}
+  preloadHero={true}
+>
+  <div class="escape-root" style="background:var(--escape-paper);color:var(--escape-ink);width:100%;overflow:hidden;">
+    <Nav activePage="home" />
+    <Hero />
+    <Strip />
+    <PermisosCards />
+    <Stats />
+    <Proceso />
+    <TeoriaMetodo />
+    <Carrusel client:visible />
+    <Resenas />
+    <Aprobados />
+    <Equipo />
+    <Faq client:visible />
+    <ContactoSection />
+    <Footer />
+  </div>
+</Layout>

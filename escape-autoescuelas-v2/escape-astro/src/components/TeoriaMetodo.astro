@@ -1,0 +1,38 @@
+---
+const items = [
+  { n: "01", t: "Plataforma online 24/7",          d: "Vídeos por temas, manual digital y tests ilimitados. Estudia desde el bus, en pausas del curro o en el sofá." },
+  { n: "02", t: "Tests cronometrados estilo DGT",   d: "Mismas preguntas, mismo formato, mismo tiempo. Llegas al examen real sin sorpresas." },
+  { n: "03", t: "Seguimiento personal",             d: "Tu profe ve tu progreso real y te avisa cuando estás listo de verdad. No vas a ciegas." },
+  { n: "04", t: "Tests presenciales en la academia",d: "Ven a la autoescuela y haz tests con nosotros las veces que necesites antes del examen." },
+];
+---
+
+<section id="teoria-metodo" style="padding:80px 56px;" data-c="section">
+  <div class="escape-reveal" style="margin-bottom:48px;">
+    <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.15em;color:var(--escape-red);margin-bottom:16px;">● TEORÍA Y MÉTODO</div>
+    <h2
+      style="font-family:var(--font-display);font-size:96px;line-height:0.95;letter-spacing:-0.045em;"
+      data-c="section-title"
+    >
+      <span class="escape-italic" style="color:var(--escape-red);">98%</span> al teórico.<br/>
+      Así lo conseguimos.
+    </h2>
+    <p style="font-size:18px;line-height:1.5;color:var(--escape-ink-2);margin-top:24px;max-width:720px;">
+      No es magia ni suerte: es un método trabajado durante 15 años en Elx. Plataforma propia, seguimiento real y tests al estilo DGT desde el primer día.
+    </p>
+  </div>
+
+  <div
+    class="escape-reveal-stagger"
+    style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;overflow:visible;"
+    data-c="teoriaGrid"
+  >
+    {items.map((p) => (
+      <div class="escape-card" style="background:#fff;border:1px solid var(--escape-line);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:8px;">
+        <div class="escape-italic" style="font-size:48px;opacity:0.18;color:var(--escape-red);line-height:1;">{p.n}</div>
+        <h3 style="font-family:var(--font-display);font-size:22px;letter-spacing:-0.02em;margin-top:auto;">{p.t}</h3>
+        <p style="font-size:14px;line-height:1.5;color:var(--escape-ink-2);">{p.d}</p>
+      </div>
+    ))}
+  </div>
+</section>
