@@ -6,6 +6,7 @@ const slides = [
   { src: "/assets/despacho.webp",      alt: "Oficina y zona de matrícula",                           label: "OFICINA" },
   { src: "/assets/coche-blanco.webp", alt: "Volkswagen Golf blanco de Escape Autoescuelas",         label: "FLOTA - COCHE PRINCIPAL" },
   { src: "/assets/coche-negro.webp",  alt: "Seat Ibiza negro de Escape Autoescuelas",               label: "FLOTA - COCHE SECUNDARIO" },
+  { src: "/assets/moto.jpg",           alt: "Moto de Escape Autoescuelas",                            label: "FLOTA - MOTO" },
 ];
 
 export default function Carrusel() {
